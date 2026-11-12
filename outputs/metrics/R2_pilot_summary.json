@@ -1,0 +1,128 @@
+{
+  "label": "R2 PILOT DE INTEGRACION -- NO RESULTADO FINAL",
+  "seed": 42,
+  "candidate": "CANDIDATE_V1",
+  "feature_names": [
+    "pm25",
+    "temp",
+    "dew"
+  ],
+  "total_trainable_parameters": 99425,
+  "train_windows_used": 4096,
+  "validation_windows_used": 1024,
+  "epochs_run": 5,
+  "history": [
+    {
+      "epoch": 1,
+      "optimization_loss_mean": 0.2839343141531572,
+      "train_loss": 0.05002531287060252,
+      "val_loss": 0.06315994678909873,
+      "train_rmse_scaled": 0.2236633918874578,
+      "val_rmse_scaled": 0.25131642761486706,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 7.207084763795137,
+      "gradient_global_norm_max": 63.5461540222168,
+      "gradient_global_norm_std": 8.803948209769045,
+      "epoch_time_seconds": 125.22393155097961,
+      "best_so_far": true
+    },
+    {
+      "epoch": 2,
+      "optimization_loss_mean": 0.10364154310082085,
+      "train_loss": 0.012598800939918471,
+      "val_loss": 0.0149759002637214,
+      "train_rmse_scaled": 0.11224438043803561,
+      "val_rmse_scaled": 0.1223760608277673,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 2.5089781284332275,
+      "gradient_global_norm_max": 10.716200828552246,
+      "gradient_global_norm_std": 2.1071435808161056,
+      "epoch_time_seconds": 65.38741183280945,
+      "best_so_far": true
+    },
+    {
+      "epoch": 3,
+      "optimization_loss_mean": 0.0667777071648743,
+      "train_loss": 0.010561957590034211,
+      "val_loss": 0.01160314484863791,
+      "train_rmse_scaled": 0.10277138507402832,
+      "val_rmse_scaled": 0.10771789474659217,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 1.299931125016883,
+      "gradient_global_norm_max": 4.622374057769775,
+      "gradient_global_norm_std": 0.8211073999534454,
+      "epoch_time_seconds": 46.12122297286987,
+      "best_so_far": true
+    },
+    {
+      "epoch": 4,
+      "optimization_loss_mean": 0.05149582760350313,
+      "train_loss": 0.008508099538494997,
+      "val_loss": 0.008721948746394866,
+      "train_rmse_scaled": 0.09223936002865044,
+      "val_rmse_scaled": 0.09339137404704391,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 1.0330580992158502,
+      "gradient_global_norm_max": 3.810628652572632,
+      "gradient_global_norm_std": 0.661995196183899,
+      "epoch_time_seconds": 66.01248240470886,
+      "best_so_far": true
+    },
+    {
+      "epoch": 5,
+      "optimization_loss_mean": 0.04278853505093139,
+      "train_loss": 0.007162792566721174,
+      "val_loss": 0.007369503716933705,
+      "train_rmse_scaled": 0.08463328285444902,
+      "val_rmse_scaled": 0.08584581362497361,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 0.9568390401545912,
+      "gradient_global_norm_max": 2.9168007373809814,
+      "gradient_global_norm_std": 0.5825481883720325,
+      "epoch_time_seconds": 40.30051636695862,
+      "best_so_far": true
+    }
+  ],
+  "validation_metrics_ug_m3": {
+    "RMSE": 85.33073868953588,
+    "MAE": 67.20861984789371,
+    "R2": -0.26497428441466386
+  },
+  "compatibility_report": {
+    "compatible": true,
+    "encoder_compatible": true,
+    "decoder_compatible": true,
+    "encoder_n_weights_source": 96,
+    "encoder_n_weights_target": 96,
+    "decoder_n_weights_source": 27,
+    "decoder_n_weights_target": 27,
+    "encoder_mismatches": [],
+    "decoder_mismatches": [],
+    "output_head_shapes_source": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "output_head_shapes_target": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "note": "output_head shapes are informational only and are NOT part of `compatible` — the output head is always reinitialized fresh for the target domain in every transfer config, never copied from source."
+  },
+  "checkpoint_dir": "outputs\\checkpoints\\R2_pilot_seed42",
+  "tensorboard_dir": "outputs\\tensorboard\\R2_pilot_seed42",
+  "total_pilot_time_seconds": 381.94245648384094,
+  "beijing_test_2014_used": false,
+  "fontibon_trained_or_evaluated": false,
+  "transfer_ab_cd_executed": false,
+  "reused_r1_checkpoints": false
+}

@@ -1,0 +1,39 @@
+{
+  "seed": 2026,
+  "feature_names": [
+    "pm25",
+    "temp",
+    "dew"
+  ],
+  "feature_order": [
+    "pm25",
+    "temp",
+    "dew"
+  ],
+  "architecture": {
+    "d_model": 32,
+    "num_heads": 4,
+    "d_ff": 128,
+    "factor": 3,
+    "dropout": 0.1,
+    "n_encoder_units": 2,
+    "n_decoder_layers": 1,
+    "non_selected_fill": "zero",
+    "causal_mode": "probsparse",
+    "lookback": 24,
+    "decoder_label_len": 12,
+    "prediction_length": 1
+  },
+  "best_epoch": 58,
+  "stopping_epoch": 73,
+  "best_val_loss": 0.00044923714322583214,
+  "checkpoint_path": "outputs\\checkpoints\\R2_source_seed2026\\best.weights.h5",
+  "n_parameters": 99425,
+  "source_domain": "Beijing",
+  "target_domain_intended": "Fontibon",
+  "encoder_transferable": true,
+  "decoder_transferable": true,
+  "output_head_transfer_policy": "reinitialize",
+  "beijing_test_used": false,
+  "fontibon_used_for_training": false
+}

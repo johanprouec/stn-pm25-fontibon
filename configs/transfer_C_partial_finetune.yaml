@@ -1,0 +1,59 @@
+# EXECUTED: 3/3 seeds complete (42, 123, 2026) -- see outputs/metrics/transfer_C_seed{42,123,2026}_summary.json.
+#
+# Config C: PARTIAL FINE-TUNING. Load Beijing-3 (R2) weights. ONLY the
+# encoder is frozen; the decoder AND the output head are both trainable
+# (decoder keeps its R2-pretrained weights as its starting point, unlike
+# B's head which is freshly initialized).
+#
+# Contrast with Config B (configs/transfer_B_feature_extractor.yaml): B
+# freezes encoder AND decoder — C is strictly less conservative than B,
+# since it lets the generative/decoder part adapt to the local domain.
+
+experiment_id: transfer_C_partial_finetune
+data:
+  source: Raw_Consolidated_ECA_Complete_2022.csv
+  station: FONTIBON
+  variables: [pm25, temp, dew]
+  window: 24
+  horizon: 1
+  split: {train_frac: 0.70, val_frac: 0.15, test_frac: 0.15}
+
+init:
+  strategy: pretrained
+  # CORRECTED: see transfer_B_feature_extractor.yaml for why. {seed} = same
+  # seed as the local Fontibon run (seed-to-seed pairing).
+  pretrained_checkpoint: outputs/checkpoints/R2_source_seed{seed}/best.weights.h5
+
+freezing:
+  encoder: true       # frozen — loaded from R2, no gradient updates
+  decoder: false        # trainable — starts from R2 weights, then adapts
+  output_head: false     # trainable
+
+learning_rates:
+  encoder: null      # frozen, not trained
+  decoder: 1.0e-4     # [reported in Phase 2 instructions]
+  head: 1.0e-4
+
+training:
+  optimizer: adam
+  batch_size: 32
+  max_epochs: 200
+  loss: mse
+  seed: [42, 123, 2026]
+
+early_stopping:
+  metric: val_loss
+  patience: 15
+  min_delta: 0.0
+  restore_best_weights: true
+
+selection_metric: RMSE
+selection_split: validation   # Fontibon test is NOT used in Phase 2 — see docs/PHASE2_PLAN.md
+baseline_reference_rmse: 6.545   # Ridge, Fontibon VALIDATION (Primer Entrega DL.pdf)
+compare_against: [transfer_A_from_scratch, transfer_B_feature_extractor]
+
+scaling_note: >
+  Uses Fontibon's OWN scaler, never Beijing's — see
+  transfer_B_feature_extractor.yaml / docs/IMPLEMENTATION_ASSUMPTIONS.md.
+
+pending_decisions: []  # early_stopping fixed: patience=15, min_delta=0.0, identical across A/B/C/D

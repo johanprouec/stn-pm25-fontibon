@@ -1,0 +1,9 @@
+{
+  "note": "Sanity check for Beijing R1 only. NOT the Primera Entrega's selected baseline (that was Ridge, on Fontibon).",
+  "split": "validation",
+  "persistence": {
+    "RMSE": 22.85815495949004,
+    "MAE": 13.212601196761703,
+    "R2": 0.9383601794562767
+  }
+}

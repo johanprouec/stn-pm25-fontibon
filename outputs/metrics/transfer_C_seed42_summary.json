@@ -1,0 +1,89 @@
+{
+  "experiment": "transfer_C",
+  "config": "C",
+  "seed": 42,
+  "status": "train_validation_only",
+  "best_epoch": 59,
+  "stopping_epoch": 74,
+  "total_epochs": 74,
+  "best_val_loss_scaled": 0.004322652351002863,
+  "train_metrics_ug_m3": {
+    "RMSE": 6.805072167957267,
+    "MAE": 4.867732601703438,
+    "R2": 0.6030070806974497
+  },
+  "validation_metrics_ug_m3": {
+    "RMSE": 6.620710904634775,
+    "MAE": 4.812306215238645,
+    "R2": 0.5771123648516356
+  },
+  "validation_residual_diagnostics_ug_m3": {
+    "bias_mean": -0.07365283951186534,
+    "std": 6.620301212330271,
+    "p05": -11.507939491271975,
+    "p25": -3.4077561378478993,
+    "p50": 0.7586214542388916,
+    "p75": 3.6728477478027344,
+    "p95": 9.281443080902099
+  },
+  "total_trainable_parameters": 17057,
+  "total_training_time_seconds": 5251.416687250137,
+  "mean_epoch_time_seconds": 69.81210212127583,
+  "gradient_norm_initial_epoch": 0.2504567812643284,
+  "gradient_norm_final_epoch": 0.16295549631140818,
+  "gradient_norm_max_over_training": 2.1846842765808105,
+  "build_report": {
+    "config": "C",
+    "seed": 42,
+    "freeze_encoder": true,
+    "freeze_decoder": false,
+    "encoder_lr": null,
+    "decoder_head_lr": 0.0001,
+    "loaded_source": true,
+    "loaded_from": "outputs\\checkpoints\\R2_source_seed42\\best.weights.h5",
+    "encoder_loaded": true,
+    "decoder_loaded": true,
+    "output_head_loaded": false
+  },
+  "compatibility_report": {
+    "compatible": true,
+    "encoder_compatible": true,
+    "decoder_compatible": true,
+    "encoder_n_weights_source": 96,
+    "encoder_n_weights_target": 96,
+    "decoder_n_weights_source": 27,
+    "decoder_n_weights_target": 27,
+    "encoder_mismatches": [],
+    "decoder_mismatches": [],
+    "output_head_shapes_source": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "output_head_shapes_target": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "note": "output_head shapes are informational only and are NOT part of `compatible` — the output head is always reinitialized fresh for the target domain in every transfer config, never copied from source."
+  },
+  "r2_source_checkpoint_sha256_before": "7753d3e9d5f885aa749f85af5aabc30717ee0d496366f29cd6d1661935449d6d",
+  "r2_source_checkpoint_sha256_after": "7753d3e9d5f885aa749f85af5aabc30717ee0d496366f29cd6d1661935449d6d",
+  "r2_source_checkpoint_intact": true,
+  "encoder_frozen_confirmed_unchanged": true,
+  "decoder_frozen_confirmed_unchanged": null,
+  "predictions_path": "outputs\\metrics\\transfer_C_seed42_validation_predictions.csv",
+  "figures_dir": "outputs\\figures\\transfer_C_seed42",
+  "checkpoint_dir": "outputs\\checkpoints\\transfer_C_seed42",
+  "beijing_test_2014_used": false,
+  "fontibon_test_used": false,
+  "r1_or_r2_modified": false
+}

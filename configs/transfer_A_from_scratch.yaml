@@ -1,0 +1,52 @@
+# EXECUTED: 3/3 seeds complete (42, 123, 2026) -- see outputs/metrics/transfer_A_seed{42,123,2026}_summary.json.
+# Config A: FROM SCRATCH. Random init, train the full STN only on Fontibon.
+# Answers: what does the deep architecture get without transfer?
+
+experiment_id: transfer_A_from_scratch
+data:
+  source: Raw_Consolidated_ECA_Complete_2022.csv
+  station: FONTIBON
+  variables: [pm25, temp, dew]
+  window: 24
+  horizon: 1
+  split: {train_frac: 0.70, val_frac: 0.15, test_frac: 0.15}  # matches baseline_fontibon.yaml — must stay identical across A/B/C/D
+
+init:
+  strategy: random
+  pretrained_checkpoint: null
+
+freezing:
+  encoder: false
+  decoder: false
+  output_head: false
+
+learning_rates:
+  encoder: 1.0e-4
+  decoder: 1.0e-4
+  head: 1.0e-4
+
+training:
+  optimizer: adam
+  batch_size: 32       # must match A/B/C/D for comparability
+  max_epochs: 200
+  loss: mse
+  seed: [42, 123, 2026]
+
+early_stopping:
+  metric: val_loss
+  patience: 15
+  min_delta: 0.0
+  restore_best_weights: true
+
+selection_metric: RMSE
+selection_split: validation   # Fontibon test is NOT used in Phase 2 — see docs/PHASE2_PLAN.md
+baseline_reference_rmse: 6.545   # Ridge, Fontibon VALIDATION (Primer Entrega DL.pdf)
+
+scaling_note: >
+  Uses Fontibon's OWN scaler (src.data.fontibon.prepare_fontibon_stn,
+  MinMax [0,1] fit EXCLUSIVELY on Fontibon train) — no pretrained
+  checkpoint is loaded in Config A, so there is no cross-domain scaler
+  question here, but the same scaler must be reused unchanged across
+  A/B/C/D for comparability. See docs/IMPLEMENTATION_ASSUMPTIONS.md.
+
+pending_decisions: []  # early_stopping fixed: patience=15, min_delta=0.0, identical across A/B/C/D

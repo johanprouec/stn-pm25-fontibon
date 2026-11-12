@@ -1,0 +1,173 @@
+{
+  "label": "DOMAIN DISTANCE ANALYSIS -- descriptive only, no hyperparameter selection",
+  "variables": [
+    "pm25",
+    "temp",
+    "dew"
+  ],
+  "descriptive_stats": {
+    "beijing": {
+      "pm25": {
+        "n": 30199,
+        "n_missing": 1937,
+        "mean": 99.04284910096361,
+        "std": 91.66480605856896,
+        "min": 0.0,
+        "p25": 30.0,
+        "p50": 73.0,
+        "p75": 138.0,
+        "p95": 281.0,
+        "max": 994.0,
+        "range": 994.0
+      },
+      "temp": {
+        "n": 32136,
+        "n_missing": 0,
+        "mean": 12.373724172267861,
+        "std": 12.535365341477489,
+        "min": -19.0,
+        "p25": 1.0,
+        "p50": 14.0,
+        "p75": 23.0,
+        "p95": 30.0,
+        "max": 41.0,
+        "range": 60.0
+      },
+      "dew": {
+        "n": 32136,
+        "n_missing": 0,
+        "mean": 2.203261140154344,
+        "std": 14.526960816986598,
+        "min": -29.0,
+        "p25": -10.0,
+        "p50": 2.0,
+        "p75": 16.0,
+        "p95": 23.0,
+        "max": 28.0,
+        "range": 57.0
+      }
+    },
+    "fontibon": {
+      "pm25": {
+        "n": 11380,
+        "n_missing": 884,
+        "mean": 18.878998242530756,
+        "std": 10.840791948280707,
+        "min": 0.1,
+        "p25": 10.9,
+        "p50": 17.1,
+        "p75": 25.0,
+        "p95": 38.70499999999993,
+        "max": 100.8,
+        "range": 100.7
+      },
+      "temp": {
+        "n": 12258,
+        "n_missing": 6,
+        "mean": 15.204380812530594,
+        "std": 2.7837779176889113,
+        "min": 8.0,
+        "p25": 13.1,
+        "p50": 14.6,
+        "p75": 17.3,
+        "p95": 20.2,
+        "max": 23.9,
+        "range": 15.899999999999999
+      },
+      "dew": {
+        "n": 12258,
+        "n_missing": 6,
+        "mean": 8.989305982780811,
+        "std": 1.8043416358958333,
+        "min": -3.6686801825239757,
+        "p25": 7.9229282689909475,
+        "p50": 9.255458636872833,
+        "p75": 10.306488546148977,
+        "p95": 11.433082333610653,
+        "max": 13.228101275496968,
+        "range": 16.896781458020943
+      }
+    }
+  },
+  "autocorrelation_pm25": {
+    "beijing": {
+      "lag_1h": 0.96285116341131,
+      "lag_24h": 0.39345700355166185,
+      "lag_168h": 0.012082051132584603
+    },
+    "fontibon": {
+      "lag_1h": 0.7414518497438054,
+      "lag_24h": 0.4234061835331483,
+      "lag_168h": 0.2947639719032874
+    }
+  },
+  "hourly_profile_pm25_mean_ug_m3": {
+    "beijing": {
+      "0": 112.59156050955414,
+      "1": 113.04833597464342,
+      "2": 108.86973788721207,
+      "3": 106.35233570863025,
+      "4": 102.92630744849446,
+      "5": 100.04610492845786,
+      "6": 97.2895783611774,
+      "7": 97.1447891805887,
+      "8": 96.86624203821655,
+      "9": 95.60859188544153,
+      "10": 95.24980047885076,
+      "11": 93.64578313253013,
+      "12": 91.10986367281475,
+      "13": 89.7128164556962,
+      "14": 87.76831210191082,
+      "15": 86.84658187599364,
+      "16": 87.20332278481013,
+      "17": 88.44664031620553,
+      "18": 91.90930599369085,
+      "19": 97.80079365079365,
+      "20": 104.50317965023848,
+      "21": 109.48489666136724,
+      "22": 111.1335453100159,
+      "23": 111.44912559618442
+    },
+    "fontibon": {
+      "0": 18.749166666666667,
+      "1": 18.18172268907563,
+      "2": 18.628601694915258,
+      "3": 17.11012658227848,
+      "4": 16.50821052631579,
+      "5": 17.013135593220337,
+      "6": 19.086974789915967,
+      "7": 23.767708333333335,
+      "8": 27.701041666666665,
+      "9": 26.71746361746362,
+      "10": 24.53522012578616,
+      "11": 20.092931392931394,
+      "12": 16.80720338983051,
+      "13": 14.947948164146867,
+      "14": 15.314004376367615,
+      "15": 15.680477223427332,
+      "16": 15.999357601713061,
+      "17": 15.808387096774192,
+      "18": 15.729809725158562,
+      "19": 16.38046218487395,
+      "20": 17.98979166666667,
+      "21": 19.25375,
+      "22": 20.228333333333335,
+      "23": 20.07759336099585
+    }
+  },
+  "wasserstein_distance_raw_units": {
+    "pm25": 80.16386410390457,
+    "temp": 8.679674412990996,
+    "dew": 12.202862956540452
+  },
+  "wasserstein_distance_standardized": {
+    "pm25": 0.14737034753949133,
+    "temp": 0.2231547013849741,
+    "dew": 0.20110224033206459
+  },
+  "scale_difference_note": "Beijing train PM2.5 mean 99.0 ug/m3 (std 91.7, max 994) vs. Fontibon train PM2.5 mean 18.9 ug/m3 (std 10.8, max 101). The absolute PM2.5 level and spread differ by roughly a factor of 5 between domains (this is why each domain keeps its OWN MinMax scaler — see docs/IMPLEMENTATION_ASSUMPTIONS.md). The transfer hypothesis for Config B/C/D is NOT that absolute PM2.5 levels transfer, but that TEMPORAL structure (autocorrelation, hourly profile shape) captured by the encoder/decoder may partially transfer despite the level/scale difference -- the standardized Wasserstein distance above is the quantitative counterpart of that hypothesis (comparing SHAPE of the distributions, with the level/scale difference removed by standardization).",
+  "figures_dir": "outputs\\figures\\domain_distance",
+  "beijing_test_2014_used": false,
+  "fontibon_validation_or_test_used": false,
+  "used_to_select_ABCD_hyperparameters": false
+}

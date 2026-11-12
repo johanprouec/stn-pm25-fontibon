@@ -1,0 +1,267 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- <proyecto>\.venv\Scripts\python.exe
+rootdir: <proyecto>/paquete_extraido
+plugins: platformdirs-4.13.0
+collecting ... collected 209 items
+
+tests/test_beijing_pipeline.py::test_split_temporal_exact_bounds PASSED  [  0%]
+tests/test_beijing_pipeline.py::test_zero_overlap_between_partitions PASSED [  0%]
+tests/test_beijing_pipeline.py::test_train_ends_before_validation PASSED [  1%]
+tests/test_beijing_pipeline.py::test_validation_ends_before_test PASSED  [  1%]
+tests/test_beijing_pipeline.py::test_cbwd_encoder_fit_only_on_train PASSED [  2%]
+tests/test_beijing_pipeline.py::test_pm25_scaler_fit_only_on_train PASSED [  2%]
+tests/test_beijing_pipeline.py::test_other_scalers_fit_only_on_train PASSED [  3%]
+tests/test_beijing_pipeline.py::test_one_hot_not_ordinal PASSED          [  3%]
+tests/test_beijing_pipeline.py::test_four_cbwd_categories_present_in_train PASSED [  4%]
+tests/test_beijing_pipeline.py::test_feature_names_correct PASSED        [  4%]
+tests/test_beijing_pipeline.py::test_encoder_shape PASSED                [  5%]
+tests/test_beijing_pipeline.py::test_encoder_feature_dim_matches_real_dataset PASSED [  5%]
+tests/test_beijing_pipeline.py::test_decoder_shape PASSED                [  6%]
+tests/test_beijing_pipeline.py::test_target_shape PASSED                 [  6%]
+tests/test_beijing_pipeline.py::test_target_never_missing PASSED         [  7%]
+tests/test_beijing_pipeline.py::test_no_window_crosses_partition_boundaries PASSED [  7%]
+tests/test_beijing_pipeline.py::test_real_beijing_windows_have_no_leftover_nan PASSED [  8%]
+tests/test_beijing_pipeline.py::test_gaps_over_6h_cause_window_discard PASSED [  8%]
+tests/test_beijing_pipeline.py::test_roundtrip_inverse_transform_recovers_y_original PASSED [  9%]
+tests/test_beijing_pipeline.py::test_decoder_placeholder_is_zero PASSED  [  9%]
+tests/test_beijing_pipeline.py::test_decoder_history_matches_same_pm25_scaling_as_encoder PASSED [ 10%]
+tests/test_beijing_pipeline.py::test_all_final_arrays_are_finite PASSED  [ 10%]
+tests/test_beijing_pipeline.py::test_window_counts_match_audited_values PASSED [ 11%]
+tests/test_beijing_pipeline.py::test_include_test_false_leaves_test_none PASSED [ 11%]
+tests/test_beijing_r2_pipeline.py::test_exactly_three_features PASSED    [ 11%]
+tests/test_beijing_r2_pipeline.py::test_feature_names_correct PASSED     [ 12%]
+tests/test_beijing_r2_pipeline.py::test_feature_order_matches_transfer_source_of_truth PASSED [ 12%]
+tests/test_beijing_r2_pipeline.py::test_beijing_r2_order_matches_fontibon_order SKIPPED [ 13%]
+tests/test_beijing_r2_pipeline.py::test_fontibon_feature_order_contract_synthetic PASSED [ 13%]
+tests/test_beijing_r2_pipeline.py::test_pm25_scaler_fit_only_on_beijing_r2_train PASSED [ 14%]
+tests/test_beijing_r2_pipeline.py::test_pm25_scaler_is_independent_and_invertible PASSED [ 14%]
+tests/test_beijing_r2_pipeline.py::test_train_validation_window_counts_positive_and_disjoint_in_time PASSED [ 15%]
+tests/test_beijing_r2_pipeline.py::test_no_window_crosses_partitions PASSED [ 15%]
+tests/test_beijing_r2_pipeline.py::test_target_never_missing PASSED      [ 16%]
+tests/test_beijing_r2_pipeline.py::test_decoder_shape PASSED             [ 16%]
+tests/test_beijing_r2_pipeline.py::test_decoder_history_matches_encoder_pm25_channel PASSED [ 17%]
+tests/test_beijing_r2_pipeline.py::test_decoder_placeholder_is_zero PASSED [ 17%]
+tests/test_beijing_r2_pipeline.py::test_all_arrays_finite PASSED         [ 18%]
+tests/test_beijing_r2_pipeline.py::test_beijing_test_not_built_by_default PASSED [ 18%]
+tests/test_beijing_r2_pipeline.py::test_source_target_encoder_decoder_weight_shapes_compatible PASSED [ 19%]
+tests/test_beijing_r2_pipeline.py::test_weight_shape_comparison_detects_real_mismatch PASSED [ 19%]
+tests/test_beijing_r2_pipeline.py::test_architecture_configurable_for_future_freeze PASSED [ 20%]
+tests/test_beijing_r2_pipeline.py::test_model_encoder_decoder_output_head_accessible PASSED [ 20%]
+tests/test_f3_audit.py::test_forward_with_attention_reproduces_model_forward PASSED [ 21%]
+tests/test_f3_audit.py::test_attention_shapes_finite_and_normalized PASSED [ 21%]
+tests/test_f3_audit.py::test_frozen_protocol_final_model_and_threshold PASSED [ 22%]
+tests/test_f3_audit.py::test_final_evaluation_was_inference_only PASSED  [ 22%]
+tests/test_f3_audit.py::test_predictions_timestamps_and_targets_match_ridge PASSED [ 22%]
+tests/test_f3_audit.py::test_high_episode_count_uses_threshold_40 PASSED [ 23%]
+tests/test_f3_audit.py::test_attention_audit_used_real_weights_of_final_model PASSED [ 23%]
+tests/test_f3_audit.py::test_fontibon_test_has_2574_windows SKIPPED      [ 24%]
+tests/test_fontibon_stn_pipeline.py::test_exactly_three_features SKIPPED [ 24%]
+tests/test_fontibon_stn_pipeline.py::test_feature_names_match_transfer_source_of_truth SKIPPED [ 25%]
+tests/test_fontibon_stn_pipeline.py::test_window_counts_match_ridge_baseline SKIPPED [ 25%]
+tests/test_fontibon_stn_pipeline.py::test_scaler_fit_only_on_train SKIPPED [ 26%]
+tests/test_fontibon_stn_pipeline.py::test_scaler_is_independent_and_invertible SKIPPED [ 26%]
+tests/test_fontibon_stn_pipeline.py::test_scaler_is_fontibons_own_not_beijings SKIPPED [ 27%]
+tests/test_fontibon_stn_pipeline.py::test_train_validation_chronologically_ordered_no_overlap SKIPPED [ 27%]
+tests/test_fontibon_stn_pipeline.py::test_target_never_missing SKIPPED   [ 28%]
+tests/test_fontibon_stn_pipeline.py::test_decoder_shape SKIPPED (Ski...) [ 28%]
+tests/test_fontibon_stn_pipeline.py::test_decoder_history_matches_encoder_pm25_channel SKIPPED [ 29%]
+tests/test_fontibon_stn_pipeline.py::test_decoder_placeholder_is_zero SKIPPED [ 29%]
+tests/test_fontibon_stn_pipeline.py::test_all_arrays_finite SKIPPED      [ 30%]
+tests/test_fontibon_stn_pipeline.py::test_fontibon_test_not_built_by_default SKIPPED [ 30%]
+tests/test_partitions.py::test_partition_sizes_match_report SKIPPED      [ 31%]
+tests/test_partitions.py::test_partition_windows_match_report_counts SKIPPED [ 31%]
+tests/test_partitions.py::test_partitions_are_chronologically_ordered SKIPPED [ 32%]
+tests/test_partitions.py::test_no_timestamp_overlap_between_partitions SKIPPED [ 32%]
+tests/test_scaler_leakage.py::test_scaler_fit_on_train_differs_from_fit_on_all SKIPPED [ 33%]
+tests/test_scaler_leakage.py::test_scaler_transform_of_val_test_uses_train_statistics SKIPPED [ 33%]
+tests/test_scaler_leakage.py::test_train_target_mean_matches_report SKIPPED [ 33%]
+tests/test_shapes.py::test_feature_frame_shape SKIPPED (Skipped: Fon...) [ 34%]
+tests/test_shapes.py::test_window_tensor_shapes SKIPPED (Skipped: Fo...) [ 34%]
+tests/test_shapes.py::test_flatten_shape SKIPPED (Skipped: Fontibón ...) [ 35%]
+tests/test_shapes.py::test_regression_metrics_shape_and_keys PASSED      [ 35%]
+tests/test_shapes.py::test_high_episode_metrics_keys_and_empty_case PASSED [ 36%]
+tests/test_shapes.py::test_high_episode_bias_sign_convention PASSED      [ 36%]
+tests/test_sparse_attention.py::test_output_shape_matches_spec PASSED    [ 37%]
+tests/test_sparse_attention.py::test_output_shape_causal[probsparse] PASSED [ 37%]
+tests/test_sparse_attention.py::test_output_shape_causal[strict] PASSED  [ 38%]
+tests/test_sparse_attention.py::test_batch_independence PASSED           [ 38%]
+tests/test_sparse_attention.py::test_multi_head_shapes[32-4] PASSED      [ 39%]
+tests/test_sparse_attention.py::test_multi_head_shapes[24-6] PASSED      [ 39%]
+tests/test_sparse_attention.py::test_multi_head_shapes[16-1] PASSED      [ 40%]
+tests/test_sparse_attention.py::test_non_divisible_d_model_raises PASSED [ 40%]
+tests/test_sparse_attention.py::test_no_nan_or_inf_in_output[False-probsparse] PASSED [ 41%]
+tests/test_sparse_attention.py::test_no_nan_or_inf_in_output[True-probsparse] PASSED [ 41%]
+tests/test_sparse_attention.py::test_no_nan_or_inf_in_output[True-strict] PASSED [ 42%]
+tests/test_sparse_attention.py::test_gradients_exist_and_are_finite[False-probsparse] PASSED [ 42%]
+tests/test_sparse_attention.py::test_gradients_exist_and_are_finite[True-probsparse] PASSED [ 43%]
+tests/test_sparse_attention.py::test_gradients_exist_and_are_finite[True-strict] PASSED [ 43%]
+tests/test_sparse_attention.py::test_probsparse_causal_attention_weights_never_attend_future_keys PASSED [ 44%]
+tests/test_sparse_attention.py::test_strict_causal_mode_output_independent_of_future_input PASSED [ 44%]
+tests/test_sparse_attention.py::test_probsparse_causal_selection_can_depend_on_future_scores_known_limitation PASSED [ 44%]
+tests/test_sparse_attention.py::test_causal_requires_self_attention PASSED [ 45%]
+tests/test_sparse_attention.py::test_invalid_causal_mode_raises PASSED   [ 45%]
+tests/test_sparse_attention.py::test_same_seed_same_call_sequence_reproduces_across_instances_during_training PASSED [ 46%]
+tests/test_sparse_attention.py::test_sampling_can_differ_between_successive_training_calls_on_same_instance PASSED [ 46%]
+tests/test_sparse_attention.py::test_evaluation_sampling_is_deterministic_across_repeated_calls[False] PASSED [ 47%]
+tests/test_sparse_attention.py::test_evaluation_sampling_is_deterministic_across_repeated_calls[None] PASSED [ 47%]
+tests/test_sparse_attention.py::test_training_none_matches_training_false PASSED [ 48%]
+tests/test_sparse_attention.py::test_small_sequence_lengths_do_not_crash[1] PASSED [ 48%]
+tests/test_sparse_attention.py::test_small_sequence_lengths_do_not_crash[2] PASSED [ 49%]
+tests/test_sparse_attention.py::test_small_sequence_lengths_do_not_crash[3] PASSED [ 49%]
+tests/test_sparse_attention.py::test_small_sequence_lengths_do_not_crash_causal[1] PASSED [ 50%]
+tests/test_sparse_attention.py::test_small_sequence_lengths_do_not_crash_causal[2] PASSED [ 50%]
+tests/test_sparse_attention.py::test_small_sequence_lengths_do_not_crash_causal[3] PASSED [ 51%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_exact_known_values[24-5.0-20] PASSED [ 51%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_exact_known_values[24-3.0-12] PASSED [ 52%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_never_exceed_L[1-5.0] PASSED [ 52%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_never_exceed_L[2-10.0] PASSED [ 53%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_never_exceed_L[5-8.0] PASSED [ 53%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_never_exceed_L[24-3.0] PASSED [ 54%]
+tests/test_sparse_attention.py::test_sample_k_and_n_top_never_exceed_L[200-5.0] PASSED [ 54%]
+tests/test_sparse_attention.py::test_sample_k_clips_when_formula_exceeds_L PASSED [ 55%]
+tests/test_sparse_attention.py::test_factor_is_configurable[1.0] PASSED  [ 55%]
+tests/test_sparse_attention.py::test_factor_is_configurable[3.0] PASSED  [ 55%]
+tests/test_sparse_attention.py::test_factor_is_configurable[8.0] PASSED  [ 56%]
+tests/test_sparse_attention.py::test_larger_factor_selects_more_top_queries PASSED [ 56%]
+tests/test_sparse_attention.py::test_key_sampling_shape_is_per_query_not_shared[True] PASSED [ 57%]
+tests/test_sparse_attention.py::test_key_sampling_shape_is_per_query_not_shared[False] PASSED [ 57%]
+tests/test_sparse_attention.py::test_key_sampling_varies_across_query_rows[True] PASSED [ 58%]
+tests/test_sparse_attention.py::test_key_sampling_varies_across_query_rows[False] PASSED [ 58%]
+tests/test_sparse_attention.py::test_strict_mode_key_sampling_respects_causal_prefix[True] PASSED [ 59%]
+tests/test_sparse_attention.py::test_strict_mode_key_sampling_respects_causal_prefix[False] PASSED [ 59%]
+tests/test_sparse_attention.py::test_output_projection_has_no_bias PASSED [ 60%]
+tests/test_sparse_attention.py::test_zero_fill_positions_produce_exact_zero_output PASSED [ 60%]
+tests/test_sparse_attention.py::test_default_non_selected_fill_is_zero PASSED [ 61%]
+tests/test_sparse_attention.py::test_mean_fill_is_selectable_and_differs_from_zero_fill PASSED [ 61%]
+tests/test_sparse_attention.py::test_return_attention_mode_has_selected_indices[False-probsparse] PASSED [ 62%]
+tests/test_sparse_attention.py::test_return_attention_mode_has_selected_indices[True-probsparse] PASSED [ 62%]
+tests/test_sparse_attention.py::test_return_attention_mode_strict_causal_has_selected_mask PASSED [ 63%]
+tests/test_stn.py::test_positional_encoding_shape[24] PASSED             [ 63%]
+tests/test_stn.py::test_positional_encoding_shape[13] PASSED             [ 64%]
+tests/test_stn.py::test_positional_encoding_is_deterministic PASSED      [ 64%]
+tests/test_stn.py::test_positional_encoding_has_no_trainable_params PASSED [ 65%]
+tests/test_stn.py::test_positional_encoding_serializable_config PASSED   [ 65%]
+tests/test_stn.py::test_sparse_attention_block_shape PASSED              [ 66%]
+tests/test_stn.py::test_sparse_attention_block_residual_matters PASSED   [ 66%]
+tests/test_stn.py::test_sparse_attention_block_gradients PASSED          [ 66%]
+tests/test_stn.py::test_sparse_attention_block_no_nan PASSED             [ 67%]
+tests/test_stn.py::test_sparse_attention_block_deterministic_when_not_training PASSED [ 67%]
+tests/test_stn.py::test_encoder_unit_branch_lengths PASSED               [ 68%]
+tests/test_stn.py::test_encoder_unit_shape PASSED                        [ 68%]
+tests/test_stn.py::test_encoder_unit_requires_even_static_length PASSED  [ 69%]
+tests/test_stn.py::test_full_encoder_two_units_shape PASSED              [ 69%]
+tests/test_stn.py::test_encoder_paper_compatible_three_units_shape PASSED [ 70%]
+tests/test_stn.py::test_encoder_sublayer_names_are_stable PASSED         [ 70%]
+tests/test_stn.py::test_decoder_input_shape PASSED                       [ 71%]
+tests/test_stn.py::test_decoder_input_last_element_is_zero PASSED        [ 71%]
+tests/test_stn.py::test_decoder_input_never_uses_future_target PASSED    [ 72%]
+tests/test_stn.py::test_decoder_input_accepts_pre_expanded_3d_history PASSED [ 72%]
+tests/test_stn.py::test_decoder_layer_shape PASSED                       [ 73%]
+tests/test_stn.py::test_decoder_stack_shape_and_names PASSED             [ 73%]
+tests/test_stn.py::test_stn_full_forward_three_variables PASSED          [ 74%]
+tests/test_stn.py::test_stn_full_forward_beijing_like_channel_count PASSED [ 74%]
+tests/test_stn.py::test_stn_forward_no_nan_or_inf[False] PASSED          [ 75%]
+tests/test_stn.py::test_stn_forward_no_nan_or_inf[True] PASSED           [ 75%]
+tests/test_stn.py::test_stn_all_trainable_variables_receive_finite_gradients PASSED [ 76%]
+tests/test_stn.py::test_stn_deterministic_when_not_training PASSED       [ 76%]
+tests/test_stn.py::test_stn_runs_with_training_true PASSED               [ 77%]
+tests/test_stn.py::test_stn_parameter_count_reported_and_warns_above_2m PASSED [ 77%]
+tests/test_stn.py::test_save_and_load_weights_reproduce_prediction PASSED [ 77%]
+tests/test_stn.py::test_stn_has_named_encoder_decoder_output_head PASSED [ 78%]
+tests/test_stn.py::test_derive_child_seed_none_base_gives_none PASSED    [ 78%]
+tests/test_stn.py::test_derive_child_seed_deterministic_given_base_and_offset PASSED [ 79%]
+tests/test_stn.py::test_distinct_blocks_have_distinct_seeds PASSED       [ 79%]
+tests/test_stn.py::test_same_base_seed_reproduces_identical_child_seed_map PASSED [ 80%]
+tests/test_stn.py::test_different_base_seed_changes_child_seeds PASSED   [ 80%]
+tests/test_stn.py::test_stn_deterministic_when_not_training_with_child_seeds PASSED [ 81%]
+tests/test_stn.py::test_child_seed_scheme_does_not_change_parameter_count PASSED [ 81%]
+tests/test_target_leakage.py::test_targets_are_never_nan SKIPPED (Sk...) [ 82%]
+tests/test_target_leakage.py::test_targets_match_raw_series_exactly SKIPPED [ 82%]
+tests/test_target_leakage.py::test_no_window_history_contains_the_target_hour SKIPPED [ 83%]
+tests/test_trainer.py::test_train_rmse_scaled_squared_equals_train_loss PASSED [ 83%]
+tests/test_trainer.py::test_batched_predictions_match_direct_predictions PASSED [ 84%]
+tests/test_trainer.py::test_same_seed_before_construction_gives_same_initial_weights PASSED [ 84%]
+tests/test_trainer.py::test_different_seed_before_construction_gives_different_weights PASSED [ 85%]
+tests/test_trainer.py::test_persistence_uses_exactly_last_historical_pm25 PASSED [ 85%]
+tests/test_trainer.py::test_trainer_fit_signature_has_no_test_parameter PASSED [ 86%]
+tests/test_trainer.py::test_best_epoch_matches_minimum_val_loss_in_history PASSED [ 86%]
+tests/test_trainer.py::test_history_contains_all_required_fields PASSED  [ 87%]
+tests/test_trainer.py::test_history_file_is_updated_after_every_epoch_not_just_at_the_end PASSED [ 87%]
+tests/test_trainer.py::test_incremental_saving_does_not_change_training_math PASSED [ 88%]
+tests/test_transfer_infrastructure.py::test_candidate_v1_matches_frozen_config_yaml PASSED [ 88%]
+tests/test_transfer_infrastructure.py::test_transfer_config_matches_yaml_freezing_and_lr[A-transfer_A_from_scratch.yaml] PASSED [ 88%]
+tests/test_transfer_infrastructure.py::test_transfer_config_matches_yaml_freezing_and_lr[B-transfer_B_feature_extractor.yaml] PASSED [ 89%]
+tests/test_transfer_infrastructure.py::test_transfer_config_matches_yaml_freezing_and_lr[C-transfer_C_partial_finetune.yaml] PASSED [ 89%]
+tests/test_transfer_infrastructure.py::test_transfer_config_matches_yaml_freezing_and_lr[D-transfer_D_full_finetune.yaml] PASSED [ 90%]
+tests/test_transfer_infrastructure.py::test_r2_source_checkpoint_path_is_seed_keyed PASSED [ 90%]
+tests/test_transfer_infrastructure.py::test_load_r2_source_into_target_copies_encoder_decoder_not_head PASSED [ 91%]
+tests/test_transfer_infrastructure.py::test_load_r2_source_into_target_raises_on_incompatible_shapes PASSED [ 91%]
+tests/test_transfer_infrastructure.py::test_load_r2_source_into_target_missing_checkpoint_raises PASSED [ 92%]
+tests/test_transfer_infrastructure.py::test_output_head_differs_across_seeds_even_with_same_loaded_source PASSED [ 92%]
+tests/test_transfer_infrastructure.py::test_config_B_style_frozen_encoder_and_decoder_unchanged_after_training_step PASSED [ 93%]
+tests/test_transfer_infrastructure.py::test_config_C_style_frozen_encoder_only_decoder_and_head_change PASSED [ 93%]
+tests/test_transfer_infrastructure.py::test_config_A_style_nothing_frozen PASSED [ 94%]
+tests/test_transfer_infrastructure.py::test_differential_lr_trainer_has_two_distinct_learning_rates PASSED [ 94%]
+tests/test_transfer_infrastructure.py::test_build_trainer_for_config_ABC_use_plain_trainer_not_differential PASSED [ 95%]
+tests/test_transfer_infrastructure.py::test_build_transfer_model_same_seed_reproduces_initial_weights PASSED [ 95%]
+tests/test_transfer_infrastructure.py::test_build_transfer_model_different_seed_gives_different_weights PASSED [ 96%]
+tests/test_transfer_infrastructure.py::test_transfer_module_never_references_fontibon_test_or_include_test_true PASSED [ 96%]
+tests/test_transfer_infrastructure.py::test_r1_test_final_summary_unchanged PASSED [ 97%]
+tests/test_transfer_infrastructure.py::test_r2_source_seed_comparison_unchanged PASSED [ 97%]
+tests/test_transfer_infrastructure.py::test_r2_source_checkpoints_still_on_disk_and_unmodified_count SKIPPED [ 98%]
+tests/test_windows_no_cross_partition.py::test_real_partitions_windows_stay_within_bounds SKIPPED [ 98%]
+tests/test_windows_no_cross_partition.py::test_synthetic_window_rejects_interpolation_touching_target_hour PASSED [ 99%]
+tests/test_windows_no_cross_partition.py::test_synthetic_window_drops_when_target_missing PASSED [ 99%]
+tests/test_windows_no_cross_partition.py::test_synthetic_window_drops_when_history_has_long_gap PASSED [100%]
+
+============================== warnings summary ===============================
+tests/test_sparse_attention.py::test_causal_requires_self_attention
+  <proyecto>\.venv\Lib\site-packages\keras\src\layers\layer.py:1570: UserWarning: Layer 'sparse_attention_19' looks like it has unbuilt state, but Keras is not able to trace the layer `call()` in order to build it automatically. Possible causes:
+  1. The `call()` method of your layer may be crashing. Try to `__call__()` the layer eagerly on some test input first to see if it works. E.g. `x = np.random.random((3, 4)); y = layer(x)`
+  2. If the `call()` method is correct, then you may need to implement the `def build(self, input_shape)` method on your layer. It should create all variables used by the layer (e.g. by calling `layer.build()` on all its children layers).
+  Exception encountered: ''causal=True requires self-attention (Lq == Lk)''
+    warnings.warn(
+
+tests/test_sparse_attention.py::test_causal_requires_self_attention
+  <proyecto>\.venv\Lib\site-packages\keras\src\layers\layer.py:431: UserWarning: `build()` was called on layer 'sparse_attention_19', however the layer does not have a `build()` method implemented and it looks like it has unbuilt state. This will cause the layer to be marked as built, despite not being actually built, which may cause failures down the line. Make sure to implement a proper `build()` method.
+    warnings.warn(
+
+tests/test_stn.py: 125 warnings
+tests/test_trainer.py: 780 warnings
+tests/test_transfer_infrastructure.py: 235 warnings
+  <proyecto>\.venv\Lib\site-packages\keras\src\backend\tensorflow\core.py:172: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+    return np.array(x)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_beijing_r2_pipeline.py:47: Raw_Consolidated_ECA_Complete_2022.csv not available locally (institutional dataset, not redistributed) -- see test_fontibon_feature_order_contract_synthetic below for the CSV-independent version of this same check.
+SKIPPED [1] tests\test_f3_audit.py:119: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:34: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:39: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:45: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:61: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:70: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:75: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:93: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:100: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:107: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:112: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:119: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:126: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_fontibon_stn_pipeline.py:136: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_partitions.py:6: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_partitions.py:14: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_partitions.py:23: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_partitions.py:32: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_scaler_leakage.py:11: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_scaler_leakage.py:29: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_scaler_leakage.py:41: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_shapes.py:8: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_shapes.py:13: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_shapes.py:21: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_target_leakage.py:6: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_target_leakage.py:11: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_target_leakage.py:18: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+SKIPPED [1] tests\test_transfer_infrastructure.py:323: Skipped: training checkpoint is intentionally excluded from the submission package.
+SKIPPED [1] tests\test_windows_no_cross_partition.py:9: Skipped: Fontibón institutional dataset is not distributed with the reproducible package.
+========= 179 passed, 30 skipped, 1142 warnings in 392.54s (0:06:32) ==========

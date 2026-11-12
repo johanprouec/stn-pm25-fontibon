@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "split": "test_2014",
+  "checkpoint_used": "outputs\\checkpoints\\R1_development_seed42\\best.weights.h5",
+  "inference_only": true,
+  "training_performed": false,
+  "n_test_windows": 8487,
+  "test_metrics_ug_m3": {
+    "RMSE": 20.69208591509387,
+    "MAE": 11.744416935643052,
+    "R2": 0.9507544121732141
+  },
+  "test_residual_diagnostics_ug_m3": {
+    "bias_mean": -1.4762689080411953,
+    "std": 20.639356812380974,
+    "p05": -27.717542648315423,
+    "p25": -8.695520401000977,
+    "p50": -0.51904296875,
+    "p75": 5.527316093444824,
+    "p95": 22.89885101318359
+  },
+  "predictions_path": "outputs\\metrics\\R1_test_seed42_predictions.csv",
+  "fontibon_used": false
+}

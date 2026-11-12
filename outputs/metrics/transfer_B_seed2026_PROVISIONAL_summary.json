@@ -1,0 +1,22 @@
+{
+  "label": "B seed2026 -- PROVISIONAL, checkpoint from epoch 74 (best_so_far before interruption at epoch 83). Training interrupted by a system restart, never resumed (no valid resume state). Pure inference only, no training performed here.",
+  "config": "B",
+  "seed": 2026,
+  "status": "PROVISIONAL_INTERRUPTED_TRAINING",
+  "checkpoint_epoch": 74,
+  "interrupted_at_epoch": 83,
+  "validation_metrics_ug_m3": {
+    "RMSE": 6.945013171030118,
+    "MAE": 5.0853886458133575,
+    "R2": 0.534669108106769
+  },
+  "validation_residual_diagnostics_ug_m3": {
+    "bias_mean": -0.003340417062994404,
+    "std": 6.94501236769206,
+    "p05": -11.688836307525635,
+    "p25": -3.5840251922607407,
+    "p50": 0.8829255104064941,
+    "p75": 4.036054491996765,
+    "p95": 9.990183334350586
+  }
+}

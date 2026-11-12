@@ -1,0 +1,63 @@
+{
+  "label": "R1 FINAL TEST EVALUATION -- Beijing test 2014, evaluated exactly once",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "n_test_windows": 8487,
+  "per_seed_test_metrics_ug_m3": {
+    "42": {
+      "RMSE": 20.69208591509387,
+      "MAE": 11.744416935643052,
+      "R2": 0.9507544121732141
+    },
+    "123": {
+      "RMSE": 21.207169617697872,
+      "MAE": 11.780159713326656,
+      "R2": 0.9482721771713954
+    },
+    "2026": {
+      "RMSE": 21.48086719424283,
+      "MAE": 12.060131714286998,
+      "R2": 0.946928373218436
+    }
+  },
+  "aggregate_test_metrics_ug_m3": {
+    "RMSE_mean": 21.126707575678193,
+    "RMSE_std": 0.40049916571504884,
+    "MAE_mean": 11.8615694544189,
+    "MAE_std": 0.1728861325325973,
+    "R2_mean": 0.9486516541876818,
+    "R2_std": 0.0019410424068749862
+  },
+  "persistence_test_metrics_ug_m3": {
+    "RMSE": 22.023520745031526,
+    "MAE": 11.915164369034995,
+    "R2": 0.9442130940233949
+  },
+  "test_target_distribution_ug_m3": {
+    "p50": 72.0,
+    "p75": 132.5,
+    "p90": 220.0,
+    "p95": 304.6999999999998,
+    "p99": 423.1399999999994,
+    "max": 671.0
+  },
+  "paper_reference_zhang_zhang_2023": {
+    "RMSE": 19.04,
+    "MAE": 11.13,
+    "R2": 0.937
+  },
+  "descriptive_difference_vs_paper_reference": {
+    "RMSE_diff_ours_minus_paper": 2.0867075756781936,
+    "MAE_diff_ours_minus_paper": 0.7315694544188993,
+    "R2_diff_ours_minus_paper": 0.01165165418768177
+  },
+  "comparability_caveat": "This is a comparison against a published reference result, NOT a claim of exact replication. Documented methodological differences: reduced STN (2 encoder / 1 decoder vs. the paper's 3/2); chronological validation split vs. the paper's random validation split; an explicit anti-leakage protocol for missing-data interpolation not described in the paper; MinMax scaling fit exclusively on TRAIN, whereas the paper does not specify its fitting scope; and our own choices for d_model, heads, d_ff, dropout, factor and decoder label length, none of which the paper reports. See docs/IMPLEMENTATION_ASSUMPTIONS.md.",
+  "total_evaluation_time_seconds": 203.89544224739075,
+  "training_performed": false,
+  "architecture_modified_after_seeing_test": false,
+  "seed_selected_based_on_test": false,
+  "fontibon_used": false
+}

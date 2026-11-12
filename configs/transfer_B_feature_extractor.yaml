@@ -1,0 +1,71 @@
+# EXECUTED: 2/3 seeds complete (42, 123). Seed 2026 PROVISIONAL (interrupted by a machine
+# restart at epoch 83; evaluated by pure inference on its best-epoch checkpoint, epoch 74 --
+# not in the seed mean/std). See outputs/metrics/transfer_B_seed{42,123}_summary.json and
+# transfer_B_seed2026_PROVISIONAL_summary.json.
+#
+# Config B: FEATURE EXTRACTOR (the most conservative of the four transfer
+# configs). Load Beijing-3 (R2) weights. BOTH encoder and decoder are
+# frozen — no gradient updates to either. Only a NEW output head (randomly
+# initialized, not loaded from R2) is trained. Beijing-3's encoder+decoder
+# act purely as a fixed feature extractor.
+#
+# Contrast with Config C (configs/transfer_C_partial_finetune.yaml): C
+# freezes ONLY the encoder and lets the decoder train — B is strictly more
+# conservative than C.
+
+experiment_id: transfer_B_feature_extractor
+data:
+  source: Raw_Consolidated_ECA_Complete_2022.csv
+  station: FONTIBON
+  variables: [pm25, temp, dew]
+  window: 24
+  horizon: 1
+  split: {train_frac: 0.70, val_frac: 0.15, test_frac: 0.15}
+
+init:
+  strategy: pretrained
+  # CORRECTED: this path never matched anything scripts/run_r2_source_training.py
+  # actually writes (it writes outputs/checkpoints/R2_source_seed{seed}/best.weights.h5,
+  # one per seed). {seed} must be substituted with the SAME seed as the local
+  # Fontibon run (seed-to-seed pairing, never the lowest-RMSE source checkpoint
+  # for all runs) -- see docs/IMPLEMENTATION_ASSUMPTIONS.md.
+  pretrained_checkpoint: outputs/checkpoints/R2_source_seed{seed}/best.weights.h5
+
+freezing:
+  encoder: true       # frozen — loaded from R2, no gradient updates
+  decoder: true        # frozen — loaded from R2, no gradient updates
+  output_head: false    # NEW head, randomly initialized, trainable — the
+                          # only part of the network that updates weights
+
+learning_rates:
+  encoder: null   # frozen, not trained
+  decoder: null   # frozen, not trained
+  head: 1.0e-4     # [reported in Phase 2 instructions] — only trainable LR
+
+training:
+  optimizer: adam
+  batch_size: 32
+  max_epochs: 200
+  loss: mse
+  seed: [42, 123, 2026]
+
+early_stopping:
+  metric: val_loss
+  patience: 15
+  min_delta: 0.0
+  restore_best_weights: true
+
+selection_metric: RMSE
+selection_split: validation   # Fontibon test is NOT used in Phase 2 — see docs/PHASE2_PLAN.md
+baseline_reference_rmse: 6.545   # Ridge, Fontibon VALIDATION (Primer Entrega DL.pdf)
+compare_against: transfer_A_from_scratch
+
+scaling_note: >
+  Uses Fontibon's OWN scaler (src.data.fontibon.prepare_fontibon_stn,
+  MinMax [0,1] fit EXCLUSIVELY on Fontibon train), never Beijing's R2
+  scaler — transfer compatibility between Beijing and Fontibon is
+  semantic/dimensional (same 3 physical variables, same order), not a
+  shared physical scaler. See docs/IMPLEMENTATION_ASSUMPTIONS.md. This is
+  a design decision already made, not pending.
+
+pending_decisions: []  # early_stopping fixed: patience=15, min_delta=0.0, identical across A/B/C/D

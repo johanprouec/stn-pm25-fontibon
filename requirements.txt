@@ -1,0 +1,24 @@
+# Core data science (installed and verified in .venv for Phase 2 Task 1 —
+# preprocessing refactor, audits and tests). Versions pinned to what was
+# actually used to verify docs/PHASE1_AUDIT.md.
+numpy==2.5.3
+pandas==3.0.6
+scikit-learn==1.9.1
+scipy==1.18.1
+matplotlib==3.11.2
+pytest==9.1.1
+
+# Needed starting Phase 2 Task 2 (SparseAttention / STN implementation).
+# Installed and used to build+test src/models/sparse_attention.py.
+tensorflow==2.21.0
+tensorboard==2.21.0  # tf.summary.scalar (src/training/trainer.py) requires this even though TF doesn't declare it as a hard dependency
+PyYAML==6.0.3
+reportlab==5.0.1
+
+# Optional: only needed to re-execute notebooks/EntregaFinal_DL.ipynb
+# (`jupyter execute --inplace ...`). Not needed for pytest.
+nbclient==0.11.0
+ipykernel==7.4.0
+
+# Reference environment: Python 3.12.10 (Windows). All versions above are the
+# ones installed in the .venv that produced outputs/pytest_fase3_full.txt.

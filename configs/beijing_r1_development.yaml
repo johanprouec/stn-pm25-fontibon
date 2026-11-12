@@ -1,0 +1,48 @@
+# R1 DEVELOPMENT — train/validation only. Status below is literal: this is
+# NOT "final R1" (that requires evaluating Beijing test 2014, which this
+# config's experiment never does — see docs/PHASE2_PLAN.md, "Regla de
+# oro"). Architecture values match CANDIDATE_V1
+# (configs/stn_candidate_v1.yaml); see docs/IMPLEMENTATION_ASSUMPTIONS.md
+# for which of these are reported by Zhang & Zhang vs. our own decisions.
+
+status: development_validation_only
+
+architecture:
+  d_model: 32              # [our decision]
+  num_heads: 4               # [our decision]
+  d_ff: 128                   # [our decision]
+  dropout: 0.10                 # [our decision] paper does not report dropout for STN
+  factor: 3                       # [our decision, ProbSparse-inspired] NOT reported by Zhang & Zhang
+  n_encoder_units: 2                # [deliberate deviation from paper's 3] promised reduced STN since Primera Entrega
+  n_decoder_layers: 1                 # [deliberate deviation from paper's 2] same rationale
+  decoder_label_len: 12                 # [our decision] ~half the 24h lookback
+  lookback: 24                            # [reported by paper]
+  prediction_length: 1                      # [matches Primera Entrega] horizon = t+1
+  non_selected_fill: zero                     # [matches paper's literal wording]
+  causal_mode: probsparse                       # [our decision, see docs/IMPLEMENTATION_ASSUMPTIONS.md]
+
+training:
+  optimizer: adam            # [reported by paper]
+  learning_rate: 1.0e-4        # [reported by paper]
+  batch_size: 32                 # [reported by paper]
+  max_epochs: 200                  # [reported by paper]
+  early_stopping:
+    monitor: val_loss
+    patience: 15               # [our decision — NOT reported by the paper]
+    min_delta: 0.0                # [our decision]
+    restore_best_weights: true      # [our decision]
+
+seed: 42
+
+data:
+  source: PRSA_data_2010.1.1-2014.12.31.csv
+  train_windows: 29237   # full, no subsampling (unlike the R1 pilot's 4096/1024 subset)
+  validation_windows: 2841
+  test_evaluated: false   # Beijing test 2014 is NEVER touched by this config's experiment
+
+note: >
+  This is the FIRST full (no-subsampling, up-to-200-epoch) training run.
+  It is still "development": no hyperparameter tuning has been done, no
+  comparison against the paper's RMSE=19.04 is made, and test 2014 stays
+  reserved. Promoting this to "R1 final" requires a separate, explicit
+  decision after this run's train/validation results are reviewed.

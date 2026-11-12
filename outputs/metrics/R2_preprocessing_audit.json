@@ -1,0 +1,66 @@
+{
+  "feature_names": [
+    "pm25",
+    "temp",
+    "dew"
+  ],
+  "feature_order_source_of_truth": "src.data.transfer_features.TRANSFER_FEATURE_NAMES",
+  "n_windows": {
+    "train": 29237,
+    "validation": 2841,
+    "test": null
+  },
+  "pm25_train_min_max_ug_m3": [
+    0.0,
+    994.0
+  ],
+  "temp_train_min_max": [
+    -19.0,
+    41.0
+  ],
+  "dew_train_min_max": [
+    -29.0,
+    28.0
+  ],
+  "encoder_input_shape": [
+    24,
+    3
+  ],
+  "decoder_input_shape": [
+    13,
+    1
+  ],
+  "compatibility_report": {
+    "compatible": true,
+    "encoder_compatible": true,
+    "decoder_compatible": true,
+    "encoder_n_weights_source": 96,
+    "encoder_n_weights_target": 96,
+    "decoder_n_weights_source": 27,
+    "decoder_n_weights_target": 27,
+    "encoder_mismatches": [],
+    "decoder_mismatches": [],
+    "output_head_shapes_source": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "output_head_shapes_target": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "note": "output_head shapes are informational only and are NOT part of `compatible` — the output head is always reinitialized fresh for the target domain in every transfer config, never copied from source."
+  },
+  "beijing_test_2014_used": false,
+  "fontibon_test_used": false,
+  "note": "No predictive/validation/test metric of any kind is included here — preprocessing and compatibility facts only."
+}

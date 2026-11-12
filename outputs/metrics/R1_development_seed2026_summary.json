@@ -1,0 +1,75 @@
+{
+  "experiment": "R1_development",
+  "status": "development_validation_only",
+  "seed": 2026,
+  "config": {
+    "d_model": 32,
+    "num_heads": 4,
+    "d_ff": 128,
+    "factor": 3,
+    "dropout": 0.1,
+    "n_encoder_units": 2,
+    "n_decoder_layers": 1,
+    "non_selected_fill": "zero",
+    "learning_rate": 0.0001,
+    "batch_size": 32,
+    "max_epochs": 200,
+    "early_stopping": {
+      "monitor": "val_loss",
+      "patience": 15,
+      "min_delta": 0.0,
+      "restore_best_weights": true
+    }
+  },
+  "best_epoch": 52,
+  "stopping_epoch": 67,
+  "total_epochs": 67,
+  "best_val_loss_scaled": 0.00045669491460593705,
+  "train_metrics_ug_m3": {
+    "RMSE": 23.30297925101505,
+    "MAE": 13.068941395394546,
+    "R2": 0.935654020847315
+  },
+  "validation_metrics_ug_m3": {
+    "RMSE": 21.24219897548955,
+    "MAE": 12.89266914366333,
+    "R2": 0.9467673648145408
+  },
+  "persistence_validation_metrics_ug_m3": {
+    "RMSE": 22.85815495949004,
+    "MAE": 13.212601196761703,
+    "R2": 0.9383601794562767
+  },
+  "descriptive_classification_vs_persistence": "A: el modelo converge y mejora claramente a la referencia",
+  "validation_target_distribution_ug_m3": {
+    "p50": 67.0,
+    "p75": 142.0,
+    "p90": 234.0,
+    "p95": 290.0,
+    "p99": 390.7999999999997,
+    "max": 480.0
+  },
+  "validation_residual_diagnostics_ug_m3": {
+    "bias_mean": -3.5725425697052744,
+    "std": 20.93962647474718,
+    "p05": -32.77009582519531,
+    "p25": -10.967552185058594,
+    "p50": -3.0583863258361816,
+    "p75": 3.1403074264526367,
+    "p95": 24.927383422851562
+  },
+  "total_trainable_parameters": 99681,
+  "total_training_time_seconds": 12309.031060934067,
+  "sum_epoch_time_seconds": 12001.514815092087,
+  "mean_epoch_time_seconds": 179.1270867924192,
+  "median_epoch_time_seconds": 174.20773458480835,
+  "gradient_norm_initial_epoch": 1.1046291991448767,
+  "gradient_norm_final_epoch": 0.06369503866218813,
+  "gradient_norm_max_over_training": 18.277936935424805,
+  "history_path": "outputs\\metrics\\R1_development_seed2026_history.json",
+  "predictions_path": "outputs\\metrics\\R1_development_seed2026_validation_predictions.csv",
+  "checkpoint_dir": "outputs\\checkpoints\\R1_development_seed2026",
+  "figures_dir": "outputs\\figures\\R1_development_seed2026",
+  "beijing_test_2014_evaluated": false,
+  "fontibon_used": false
+}

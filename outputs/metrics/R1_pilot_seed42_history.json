@@ -1,0 +1,62 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 0.1999163119471632,
+    "val_loss": 0.01812276239591757,
+    "train_rmse_scaled": 0.13051210630858961,
+    "val_rmse_scaled": 0.13462080966892737,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 5.234083270654082,
+    "gradient_global_norm_max": 33.584896087646484,
+    "gradient_global_norm_std": 4.777428833031937,
+    "epoch_time_seconds": 26.4883394241333
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.0930063818814233,
+    "val_loss": 0.007982058677129863,
+    "train_rmse_scaled": 0.08370028157925778,
+    "val_rmse_scaled": 0.08934236776093335,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 2.206858658697456,
+    "gradient_global_norm_max": 12.587188720703125,
+    "gradient_global_norm_std": 1.7952526588327358,
+    "epoch_time_seconds": 5.589271306991577
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.061066840222338215,
+    "val_loss": 0.00678152834092949,
+    "train_rmse_scaled": 0.07756594783246784,
+    "val_rmse_scaled": 0.08235003546404512,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 1.3567451881244779,
+    "gradient_global_norm_max": 6.106958389282227,
+    "gradient_global_norm_std": 0.9189867184843395,
+    "epoch_time_seconds": 5.4771177768707275
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.04468756522692274,
+    "val_loss": 0.005867061777244122,
+    "train_rmse_scaled": 0.07339322120137166,
+    "val_rmse_scaled": 0.07659674782420023,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 1.078864710405469,
+    "gradient_global_norm_max": 5.209122657775879,
+    "gradient_global_norm_std": 0.8284588633594813,
+    "epoch_time_seconds": 5.5286478996276855
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.03475296283431817,
+    "val_loss": 0.006165676164645627,
+    "train_rmse_scaled": 0.07207830902615069,
+    "val_rmse_scaled": 0.07852181967227725,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 0.8372211662353948,
+    "gradient_global_norm_max": 3.992043972015381,
+    "gradient_global_norm_std": 0.5601574747839224,
+    "epoch_time_seconds": 5.5505921840667725
+  }
+]

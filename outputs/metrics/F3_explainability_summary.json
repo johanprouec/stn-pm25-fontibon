@@ -1,0 +1,424 @@
+{
+  "seeds": {
+    "42": {
+      "forward_check_max_abs_diff": 2.086162567138672e-07,
+      "ig_completeness_error_mean": 0.00486837700009346,
+      "ig_mean_abs_output_change_vs_baseline": 0.0895049199461937,
+      "ig_feature_share_mean": {
+        "pm25": 0.4698324501514435,
+        "temp": 0.2786252200603485,
+        "dew": 0.2515422999858856
+      },
+      "ig_feature_share_high": {
+        "pm25": 0.5756251811981201,
+        "temp": 0.24412968754768372,
+        "dew": 0.18024513125419617
+      },
+      "ig_share_last_hour_pm25": 0.24615760147571564,
+      "ig_share_last_6h_all_features": 0.6898972392082214,
+      "attention_enc_long1_mass_last_hour": 0.1053924411535263,
+      "attention_enc_long1_mass_last_6h": 0.2815075218677521,
+      "attention_enc_long1_mass_uniform_reference_last_6h": 0.25,
+      "attention_cross_mass_short_half": 0.45840349793434143,
+      "dec_pred_position_selected_frac": 0.9224941724941725,
+      "shortcut_persistence": {
+        "corr_pred_last_observed": 0.9056575689918558,
+        "corr_pred_real": 0.7835894402626801,
+        "rmse_pred_vs_persistence": 4.839230462913127,
+        "slope_pred_on_last_observed": 0.7247537120794276,
+        "corr_pred_vs_real_shift_0h": 0.7835894402626801,
+        "corr_pred_vs_real_shift_1h": 0.9055517478556566,
+        "corr_pred_vs_real_shift_2h": 0.7102939536660582,
+        "n_rises_ge5": 555,
+        "fraction_of_rise_captured_mean": 0.22258469265469635,
+        "n_falls_le_minus5": 522,
+        "fraction_of_fall_captured_mean": 0.39706256995566064
+      },
+      "synthetic_cases_pred_ug_m3": {
+        "constante_10": 9.99993896484375,
+        "constante_20": 20.704235076904297,
+        "constante_40": 38.42226028442383,
+        "constante_60": 54.345462799072266,
+        "escalon_15_a_35_ultimas_4h": 28.036449432373047,
+        "rampa_15_a_45_ultimas_6h": 32.700862884521484,
+        "descenso_45_a_15_ultimas_6h": 20.23065757751465,
+        "pico_aislado_hace_12h": 15.870019912719727,
+        "pico_en_la_ultima_hora": 30.630136489868164
+      },
+      "ablations_test": {
+        "original_rmse": 6.8871724353897195,
+        "meteo_neutralizada": {
+          "rmse": 7.583809097167001,
+          "rmse_change_vs_original": 0.6966366617772817,
+          "rmse_high_ge40": 20.15311949649305,
+          "mean_abs_change_in_prediction": 2.3214852809906006
+        },
+        "orden_temporal_permutado": {
+          "rmse": 11.038346597299013,
+          "rmse_change_vs_original": 4.151174161909293,
+          "rmse_high_ge40": 26.355499875423853,
+          "mean_abs_change_in_prediction": 6.184512615203857
+        },
+        "historia_pm25_plana_ultimo_valor": {
+          "rmse": 7.684694772692106,
+          "rmse_change_vs_original": 0.7975223373023868,
+          "rmse_high_ge40": 14.40096813766738,
+          "mean_abs_change_in_prediction": 2.877376079559326
+        }
+      }
+    },
+    "123": {
+      "forward_check_max_abs_diff": 1.7881393432617188e-07,
+      "ig_completeness_error_mean": 0.002935632597655058,
+      "ig_mean_abs_output_change_vs_baseline": 0.08621295541524887,
+      "ig_feature_share_mean": {
+        "pm25": 0.48337316513061523,
+        "temp": 0.24483726918697357,
+        "dew": 0.27178993821144104
+      },
+      "ig_feature_share_high": {
+        "pm25": 0.5731492042541504,
+        "temp": 0.24371908605098724,
+        "dew": 0.18313178420066833
+      },
+      "ig_share_last_hour_pm25": 0.2380887120962143,
+      "ig_share_last_6h_all_features": 0.7092975378036499,
+      "attention_enc_long1_mass_last_hour": 0.05562851205468178,
+      "attention_enc_long1_mass_last_6h": 0.173143669962883,
+      "attention_enc_long1_mass_uniform_reference_last_6h": 0.25,
+      "attention_cross_mass_short_half": 0.5996624827384949,
+      "dec_pred_position_selected_frac": 0.7660256410256411,
+      "shortcut_persistence": {
+        "corr_pred_last_observed": 0.8953495236736567,
+        "corr_pred_real": 0.786106527627282,
+        "rmse_pred_vs_persistence": 5.088788451353335,
+        "slope_pred_on_last_observed": 0.6997721306890738,
+        "corr_pred_vs_real_shift_0h": 0.786106527627282,
+        "corr_pred_vs_real_shift_1h": 0.8951018116417139,
+        "corr_pred_vs_real_shift_2h": 0.7245151878061357,
+        "n_rises_ge5": 555,
+        "fraction_of_rise_captured_mean": 0.24923743471413637,
+        "n_falls_le_minus5": 522,
+        "fraction_of_fall_captured_mean": 0.3849001998868572
+      },
+      "synthetic_cases_pred_ug_m3": {
+        "constante_10": 9.47454833984375,
+        "constante_20": 20.109546661376953,
+        "constante_40": 38.4693489074707,
+        "constante_60": 56.513545989990234,
+        "escalon_15_a_35_ultimas_4h": 26.760744094848633,
+        "rampa_15_a_45_ultimas_6h": 29.36234474182129,
+        "descenso_45_a_15_ultimas_6h": 20.20970916748047,
+        "pico_aislado_hace_12h": 15.537039756774902,
+        "pico_en_la_ultima_hora": 25.432584762573242
+      },
+      "ablations_test": {
+        "original_rmse": 6.847649642057428,
+        "meteo_neutralizada": {
+          "rmse": 7.615676062490896,
+          "rmse_change_vs_original": 0.7680264204334675,
+          "rmse_high_ge40": 20.982954774842376,
+          "mean_abs_change_in_prediction": 2.3272345066070557
+        },
+        "orden_temporal_permutado": {
+          "rmse": 11.021662022696892,
+          "rmse_change_vs_original": 4.174012380639464,
+          "rmse_high_ge40": 26.92464711205299,
+          "mean_abs_change_in_prediction": 6.207982063293457
+        },
+        "historia_pm25_plana_ultimo_valor": {
+          "rmse": 7.539957628603199,
+          "rmse_change_vs_original": 0.6923079865457709,
+          "rmse_high_ge40": 14.631853298925634,
+          "mean_abs_change_in_prediction": 2.770977020263672
+        }
+      }
+    },
+    "2026": {
+      "forward_check_max_abs_diff": 1.1920928955078125e-07,
+      "ig_completeness_error_mean": 0.0039489078335464,
+      "ig_mean_abs_output_change_vs_baseline": 0.08937077224254608,
+      "ig_feature_share_mean": {
+        "pm25": 0.43756839632987976,
+        "temp": 0.2803068161010742,
+        "dew": 0.2821250259876251
+      },
+      "ig_feature_share_high": {
+        "pm25": 0.5413493514060974,
+        "temp": 0.2561577558517456,
+        "dew": 0.2024928480386734
+      },
+      "ig_share_last_hour_pm25": 0.23966744542121887,
+      "ig_share_last_6h_all_features": 0.6913772821426392,
+      "attention_enc_long1_mass_last_hour": 0.06968572735786438,
+      "attention_enc_long1_mass_last_6h": 0.40921878814697266,
+      "attention_enc_long1_mass_uniform_reference_last_6h": 0.25,
+      "attention_cross_mass_short_half": 0.6467529535293579,
+      "dec_pred_position_selected_frac": 1.0,
+      "shortcut_persistence": {
+        "corr_pred_last_observed": 0.8897941321572117,
+        "corr_pred_real": 0.7846704899090738,
+        "rmse_pred_vs_persistence": 5.13817298595608,
+        "slope_pred_on_last_observed": 0.7167344015598583,
+        "corr_pred_vs_real_shift_0h": 0.7846704899090738,
+        "corr_pred_vs_real_shift_1h": 0.8895497261614969,
+        "corr_pred_vs_real_shift_2h": 0.713264589601727,
+        "n_rises_ge5": 555,
+        "fraction_of_rise_captured_mean": 0.25060068358853255,
+        "n_falls_le_minus5": 522,
+        "fraction_of_fall_captured_mean": 0.4019702093734537
+      },
+      "synthetic_cases_pred_ug_m3": {
+        "constante_10": 10.25496768951416,
+        "constante_20": 20.54789924621582,
+        "constante_40": 39.531402587890625,
+        "constante_60": 58.68754959106445,
+        "escalon_15_a_35_ultimas_4h": 30.59577751159668,
+        "rampa_15_a_45_ultimas_6h": 36.385440826416016,
+        "descenso_45_a_15_ultimas_6h": 19.557472229003906,
+        "pico_aislado_hace_12h": 15.492186546325684,
+        "pico_en_la_ultima_hora": 35.85200119018555
+      },
+      "ablations_test": {
+        "original_rmse": 6.871912388578724,
+        "meteo_neutralizada": {
+          "rmse": 7.47043314170619,
+          "rmse_change_vs_original": 0.5985207531274659,
+          "rmse_high_ge40": 18.422448379057755,
+          "mean_abs_change_in_prediction": 2.5717780590057373
+        },
+        "orden_temporal_permutado": {
+          "rmse": 11.442605598530422,
+          "rmse_change_vs_original": 4.570693209951698,
+          "rmse_high_ge40": 27.245834589209412,
+          "mean_abs_change_in_prediction": 6.645289897918701
+        },
+        "historia_pm25_plana_ultimo_valor": {
+          "rmse": 7.6648088550172915,
+          "rmse_change_vs_original": 0.7928964664385676,
+          "rmse_high_ge40": 14.465018414719077,
+          "mean_abs_change_in_prediction": 2.8345015048980713
+        }
+      }
+    }
+  },
+  "aggregate": {
+    "ig_share_pm25": {
+      "mean": 0.4635913372039795,
+      "std": 0.02353152841061242,
+      "per_seed": [
+        0.4698324501514435,
+        0.48337316513061523,
+        0.43756839632987976
+      ]
+    },
+    "ig_share_temp": {
+      "mean": 0.26792310178279877,
+      "std": 0.02001058947889579,
+      "per_seed": [
+        0.2786252200603485,
+        0.24483726918697357,
+        0.2803068161010742
+      ]
+    },
+    "ig_share_dew": {
+      "mean": 0.26848575472831726,
+      "std": 0.015556799278514182,
+      "per_seed": [
+        0.2515422999858856,
+        0.27178993821144104,
+        0.2821250259876251
+      ]
+    },
+    "ig_share_last_hour_pm25": {
+      "mean": 0.2413045863310496,
+      "std": 0.004276320465498164,
+      "per_seed": [
+        0.24615760147571564,
+        0.2380887120962143,
+        0.23966744542121887
+      ]
+    },
+    "ig_share_last_6h_all_features": {
+      "mean": 0.6968573530515035,
+      "std": 0.01079890176233592,
+      "per_seed": [
+        0.6898972392082214,
+        0.7092975378036499,
+        0.6913772821426392
+      ]
+    },
+    "attention_enc_long1_mass_last_6h": {
+      "mean": 0.2879566599925359,
+      "std": 0.11816961916382053,
+      "per_seed": [
+        0.2815075218677521,
+        0.173143669962883,
+        0.40921878814697266
+      ]
+    },
+    "corr_pred_last_observed": {
+      "mean": 0.8969337416075747,
+      "std": 0.008049501034119834,
+      "per_seed": [
+        0.9056575689918558,
+        0.8953495236736567,
+        0.8897941321572117
+      ]
+    },
+    "corr_pred_real": {
+      "mean": 0.7847888192663453,
+      "std": 0.0012627088254438595,
+      "per_seed": [
+        0.7835894402626801,
+        0.786106527627282,
+        0.7846704899090738
+      ]
+    },
+    "fraction_of_rise_captured": {
+      "mean": 0.2408076036524551,
+      "std": 0.015796217135680392,
+      "per_seed": [
+        0.22258469265469635,
+        0.24923743471413637,
+        0.25060068358853255
+      ]
+    },
+    "fraction_of_fall_captured": {
+      "mean": 0.3946443264053238,
+      "std": 0.008788187092323572,
+      "per_seed": [
+        0.39706256995566064,
+        0.3849001998868572,
+        0.4019702093734537
+      ]
+    },
+    "ablation_meteo_neutralizada_rmse_change": {
+      "mean": 0.6877279451127384,
+      "std": 0.08510327101040276,
+      "per_seed": [
+        0.6966366617772817,
+        0.7680264204334675,
+        0.5985207531274659
+      ]
+    },
+    "ablation_orden_temporal_permutado_rmse_change": {
+      "mean": 4.2986265841668185,
+      "std": 0.2358931595196628,
+      "per_seed": [
+        4.151174161909293,
+        4.174012380639464,
+        4.570693209951698
+      ]
+    },
+    "ablation_historia_pm25_plana_ultimo_valor_rmse_change": {
+      "mean": 0.760908930095575,
+      "std": 0.05945516598458666,
+      "per_seed": [
+        0.7975223373023868,
+        0.6923079865457709,
+        0.7928964664385676
+      ]
+    },
+    "synthetic_constante_10": {
+      "mean": 9.909818331400553,
+      "std": 0.39793829517168705,
+      "per_seed": [
+        9.99993896484375,
+        9.47454833984375,
+        10.25496768951416
+      ]
+    },
+    "synthetic_constante_20": {
+      "mean": 20.453893661499023,
+      "std": 0.3082877963187415,
+      "per_seed": [
+        20.704235076904297,
+        20.109546661376953,
+        20.54789924621582
+      ]
+    },
+    "synthetic_constante_40": {
+      "mean": 38.80767059326172,
+      "std": 0.6272123521123162,
+      "per_seed": [
+        38.42226028442383,
+        38.4693489074707,
+        39.531402587890625
+      ]
+    },
+    "synthetic_constante_60": {
+      "mean": 56.51551946004232,
+      "std": 2.171044068699732,
+      "per_seed": [
+        54.345462799072266,
+        56.513545989990234,
+        58.68754959106445
+      ]
+    },
+    "synthetic_escalon_15_a_35_ultimas_4h": {
+      "mean": 28.46432367960612,
+      "std": 1.9529919624713004,
+      "per_seed": [
+        28.036449432373047,
+        26.760744094848633,
+        30.59577751159668
+      ]
+    },
+    "synthetic_rampa_15_a_45_ultimas_6h": {
+      "mean": 32.816216150919594,
+      "std": 3.5129687495641035,
+      "per_seed": [
+        32.700862884521484,
+        29.36234474182129,
+        36.385440826416016
+      ]
+    },
+    "synthetic_descenso_45_a_15_ultimas_6h": {
+      "mean": 19.999279657999676,
+      "std": 0.38275979701064233,
+      "per_seed": [
+        20.23065757751465,
+        20.20970916748047,
+        19.557472229003906
+      ]
+    },
+    "synthetic_pico_aislado_hace_12h": {
+      "mean": 15.633082071940104,
+      "std": 0.2064161038215835,
+      "per_seed": [
+        15.870019912719727,
+        15.537039756774902,
+        15.492186546325684
+      ]
+    },
+    "synthetic_pico_en_la_ultima_hora": {
+      "mean": 30.638240814208984,
+      "std": 5.209712941521256,
+      "per_seed": [
+        30.630136489868164,
+        25.432584762573242,
+        35.85200119018555
+      ]
+    }
+  },
+  "setup": {
+    "ig": {
+      "steps": 32,
+      "baseline": "ventana constante con la media de train por variable",
+      "baseline_physical_units": {
+        "pm25": 19.066465896416283,
+        "temp": 15.176748904523848,
+        "dew": 8.998184287652615
+      },
+      "n_windows": 518,
+      "n_high_ge40": 118,
+      "n_normal_random": 400,
+      "rng_seed": 2026
+    },
+    "synthetic_meteo": "temperatura y punto de rocío constantes en la media de train",
+    "ablation_permutation_seed": 17,
+    "attention_note": "enc0_long1 opera sobre las 24 horas reales (posición 23 = hora t); después de la primera unidad las posiciones mezclan horas (pooling/concatenación), por eso solo las capas de la unidad 0 se leen como horas.",
+    "training_performed": false
+  }
+}

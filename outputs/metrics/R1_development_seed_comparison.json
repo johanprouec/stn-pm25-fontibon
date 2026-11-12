@@ -1,0 +1,79 @@
+{
+  "rows": [
+    {
+      "seed": 42,
+      "best_epoch": 43,
+      "stopping_epoch": 58,
+      "total_epochs": 58,
+      "train_RMSE": 23.436776573759268,
+      "val_RMSE": 21.122482984827,
+      "val_MAE": 12.675257302429927,
+      "val_R2": 0.9473656870387863,
+      "training_time_seconds": 46749.70700407028,
+      "sum_epoch_time_seconds": null,
+      "gradient_norm_initial": 2.0837841167133018,
+      "gradient_norm_final": 0.08683484054987749,
+      "gradient_norm_max": 69.51006317138672,
+      "classification_vs_persistence": "A: el modelo converge y mejora claramente a la referencia"
+    },
+    {
+      "seed": 123,
+      "best_epoch": 72,
+      "stopping_epoch": 87,
+      "total_epochs": 87,
+      "train_RMSE": 22.565268843099066,
+      "val_RMSE": 20.780563071710574,
+      "val_MAE": 12.430772691241287,
+      "val_R2": 0.9490559295066477,
+      "training_time_seconds": 18459.96679329872,
+      "sum_epoch_time_seconds": 18283.942247629166,
+      "gradient_norm_initial": 1.7993436899826876,
+      "gradient_norm_final": 0.0677697043590802,
+      "gradient_norm_max": 53.73664855957031,
+      "classification_vs_persistence": "A: el modelo converge y mejora claramente a la referencia"
+    },
+    {
+      "seed": 2026,
+      "best_epoch": 52,
+      "stopping_epoch": 67,
+      "total_epochs": 67,
+      "train_RMSE": 23.30297925101505,
+      "val_RMSE": 21.24219897548955,
+      "val_MAE": 12.89266914366333,
+      "val_R2": 0.9467673648145408,
+      "training_time_seconds": 12309.031060934067,
+      "sum_epoch_time_seconds": 12001.514815092087,
+      "gradient_norm_initial": 1.1046291991448767,
+      "gradient_norm_final": 0.06369503866218813,
+      "gradient_norm_max": 18.277936935424805,
+      "classification_vs_persistence": "A: el modelo converge y mejora claramente a la referencia"
+    }
+  ],
+  "validation_stats": {
+    "val_RMSE_mean": 21.048415010675708,
+    "val_RMSE_std": 0.23956518008804048,
+    "val_MAE_mean": 12.66623304577818,
+    "val_MAE_std": 0.23108042127385964,
+    "val_R2_mean": 0.9477296604533249,
+    "val_R2_std": 0.0011869033542617527
+  },
+  "persistence_validation_metrics_ug_m3": {
+    "RMSE": 22.85815495949004,
+    "MAE": 13.212601196761703,
+    "R2": 0.9383601794562767
+  },
+  "stability_diagnostics": {
+    "n_seeds": 3,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "val_RMSE_coefficient_of_variation": 0.01138162564575687,
+    "best_epoch_spread": 29,
+    "all_seeds_beat_persistence": true,
+    "note": "Descriptive only. No seed is presented as 'the' result; all three form the stability report. Beijing test 2014 not evaluated for any seed. Fontibon not used."
+  },
+  "beijing_test_2014_evaluated": false,
+  "fontibon_used": false
+}

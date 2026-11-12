@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+outputs/checkpoints/*
+!outputs/checkpoints/.gitkeep
+outputs/tensorboard/
+*.h5
+*.keras
+# Institutional/local Fontibón data
+Raw_Consolidated_ECA_Complete_2022.csv
+**/Raw_Consolidated_ECA_Complete_2022.csv
+*Fontibon*.csv
+*fontibon*.csv
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

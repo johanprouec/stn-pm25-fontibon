@@ -1,0 +1,74 @@
+{
+  "rows": [
+    {
+      "seed": 42,
+      "best_epoch": 54,
+      "stopping_epoch": 69,
+      "total_epochs": 69,
+      "train_RMSE": 23.587372835017966,
+      "val_RMSE": 21.140980693517648,
+      "val_MAE": 13.006536038565576,
+      "val_R2": 0.9472734591976509,
+      "bias": 1.6341193618593146,
+      "training_time_seconds": 13262.689089775085,
+      "gradient_norm_initial": 2.075957959782764,
+      "gradient_norm_final": 0.08319082030622978,
+      "gradient_norm_max": 71.39420318603516,
+      "compatible_from_checkpoint": true
+    },
+    {
+      "seed": 123,
+      "best_epoch": 58,
+      "stopping_epoch": 73,
+      "total_epochs": 73,
+      "train_RMSE": 23.31826937228852,
+      "val_RMSE": 20.97068520756455,
+      "val_MAE": 12.543869670534251,
+      "val_R2": 0.948119486890304,
+      "bias": 1.3294348140200944,
+      "training_time_seconds": 14583.19125199318,
+      "gradient_norm_initial": 1.9529186618275924,
+      "gradient_norm_final": 0.07508702081306155,
+      "gradient_norm_max": 59.925697326660156,
+      "compatible_from_checkpoint": true
+    },
+    {
+      "seed": 2026,
+      "best_epoch": 58,
+      "stopping_epoch": 73,
+      "total_epochs": 73,
+      "train_RMSE": 23.294176552909615,
+      "val_RMSE": 21.068043820045013,
+      "val_MAE": 12.646218293487753,
+      "val_R2": 0.9476366471876638,
+      "bias": -0.20725650646366817,
+      "training_time_seconds": 13899.950638771057,
+      "gradient_norm_initial": 1.266496749737461,
+      "gradient_norm_final": 0.06262122761280861,
+      "gradient_norm_max": 24.336408615112305,
+      "compatible_from_checkpoint": true
+    }
+  ],
+  "validation_stats": {
+    "val_RMSE_mean": 21.059903240375736,
+    "val_RMSE_std": 0.08543910060396404,
+    "val_MAE_mean": 12.732208000862528,
+    "val_MAE_std": 0.2430241024211875,
+    "val_R2_mean": 0.9476765310918728,
+    "val_R2_std": 0.00042442167539510857
+  },
+  "stability_diagnostics": {
+    "n_seeds": 3,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "val_RMSE_coefficient_of_variation": 0.004056955990194744,
+    "best_epoch_spread": 4,
+    "all_checkpoints_compatible_with_fontibon_shaped_target": true,
+    "note": "Descriptive only. No seed is presented as 'the' R2 source checkpoint -- all three are kept, paired by seed with the corresponding local Fontibon transfer run (local seed 42 <- R2 source seed 42, etc; see docs/IMPLEMENTATION_ASSUMPTIONS.md). R2 is source pretraining, not a new R1 replication -- not compared against Zhang & Zhang's published Beijing RMSE=19.04. Beijing test 2014 not evaluated for any seed. Fontibon not trained or evaluated."
+  },
+  "beijing_test_2014_evaluated": false,
+  "fontibon_trained_or_evaluated": false
+}

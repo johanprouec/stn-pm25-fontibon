@@ -1,0 +1,31 @@
+# Line-base configuration (Fase 1, already executed and verified).
+# Reproduced by: scripts/run_baseline_fontibon.py
+# Source: PrimeraEntrega_DL.ipynb, Primer Entrega DL.pdf (Tabla 3, Tabla 2).
+
+seed: 42
+window: 24
+horizon: 1
+gap_interpolation_limit_hours: 6
+
+split:
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+
+variables: [pm25, temp, dew]
+
+model:
+  name: ridge
+  alpha: 1.0
+  scaler: standard  # fit on train only
+
+selection_metric: RMSE
+selection_split: validation  # test is reserved; never used to pick alpha/model
+
+high_episode_threshold_ug_m3: 40.0  # primary, per report text (see docs/PHASE1_AUDIT.md
+                                     # for the 37-vs-40 discrepancy with the notebook's
+                                     # actually-executed cell)
+
+documented_results:
+  validation: {RMSE: 6.545, MAE: 4.783, R2: 0.587}
+  test: {RMSE: 7.063, MAE: 5.115, R2: 0.593}

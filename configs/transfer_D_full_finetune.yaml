@@ -1,0 +1,59 @@
+# PILOT ONLY (2 epochs, 512/128 windows, seed 42 -- outputs/metrics/transfer_pilot_D_seed42_summary.json).
+# NO full training executed with any seed. Infrastructure and differentiated LR verified working.
+# Config D: FULL FINE-TUNING. Load Beijing-3 (R2) weights, train the whole
+# network, with differentiated learning rates as an initial hypothesis
+# (encoder slower than decoder+head, since the encoder carries the more
+# general, presumably more transferable representation).
+
+experiment_id: transfer_D_full_finetune
+data:
+  source: Raw_Consolidated_ECA_Complete_2022.csv
+  station: FONTIBON
+  variables: [pm25, temp, dew]
+  window: 24
+  horizon: 1
+  split: {train_frac: 0.70, val_frac: 0.15, test_frac: 0.15}
+
+init:
+  strategy: pretrained
+  # CORRECTED: see transfer_B_feature_extractor.yaml for why. {seed} = same
+  # seed as the local Fontibon run (seed-to-seed pairing).
+  pretrained_checkpoint: outputs/checkpoints/R2_source_seed{seed}/best.weights.h5
+
+freezing:
+  encoder: false
+  decoder: false
+  output_head: false
+
+learning_rates:
+  encoder: 1.0e-5   # [reported in Phase 2 instructions] — differentiated LR, hypothesis to test
+  decoder: 1.0e-4    # [reported in Phase 2 instructions]
+  head: 1.0e-4
+
+training:
+  optimizer: adam
+  batch_size: 32
+  max_epochs: 200
+  loss: mse
+  seed: [42, 123, 2026]
+
+early_stopping:
+  metric: val_loss
+  patience: 15
+  min_delta: 0.0
+  restore_best_weights: true
+
+selection_metric: RMSE
+selection_split: validation   # Fontibon test is NOT used in Phase 2 — see docs/PHASE2_PLAN.md
+baseline_reference_rmse: 6.545   # Ridge, Fontibon VALIDATION (Primer Entrega DL.pdf)
+compare_against: [transfer_A_from_scratch, transfer_B_feature_extractor, transfer_C_partial_finetune]
+
+note: >
+  Learning rates must be configurable (this file), never hardcoded inside
+  the model/training code, per the Phase 2 instructions.
+
+scaling_note: >
+  Uses Fontibon's OWN scaler, never Beijing's — see
+  transfer_B_feature_extractor.yaml / docs/IMPLEMENTATION_ASSUMPTIONS.md.
+
+pending_decisions: []  # early_stopping fixed: patience=15, min_delta=0.0, identical across A/B/C/D

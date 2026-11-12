@@ -1,0 +1,76 @@
+{
+  "raw_rows": 43824,
+  "date_min": "2010-01-01 00:00:00",
+  "date_max": "2014-12-31 23:00:00",
+  "missing_per_column": {
+    "pm2.5": 2067,
+    "DEWP": 0,
+    "TEMP": 0,
+    "PRES": 0,
+    "cbwd": 0,
+    "Iws": 0,
+    "Is": 0,
+    "Ir": 0
+  },
+  "pm25_missing_blocks_total": 214,
+  "pm25_missing_blocks_gt_6h": 56,
+  "pm25_missing_blocks_gt_24h": 20,
+  "n_windows": {
+    "train": 29237,
+    "validation": 2841,
+    "test_prepared_not_evaluated": 8487
+  },
+  "train_max_possible_windows": 32112,
+  "train_discard_pct": 8.953,
+  "n_channels": 11,
+  "feature_names": [
+    "pm25",
+    "dewp",
+    "temp",
+    "pres",
+    "iws",
+    "is_",
+    "ir",
+    "cbwd_NE",
+    "cbwd_NW",
+    "cbwd_SE",
+    "cbwd_cv"
+  ],
+  "pm25_train_min_max_ug_m3": [
+    0.0,
+    994.0
+  ],
+  "other_continuous_train_min_max": {
+    "dewp": [
+      -29.0,
+      28.0
+    ],
+    "temp": [
+      -19.0,
+      41.0
+    ],
+    "pres": [
+      991.0,
+      1046.0
+    ],
+    "iws": [
+      0.45,
+      585.6
+    ],
+    "is_": [
+      0.0,
+      27.0
+    ],
+    "ir": [
+      0.0,
+      36.0
+    ]
+  },
+  "cbwd_categories_learned_from_train": [
+    "NE",
+    "NW",
+    "SE",
+    "cv"
+  ],
+  "note": "No predictive/test-set result of any kind is included here — preprocessing facts only."
+}

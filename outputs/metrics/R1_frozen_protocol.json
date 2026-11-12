@@ -1,0 +1,60 @@
+{
+  "note": "Frozen BEFORE Beijing test 2014 is touched. Written from the exact values used in configs/beijing_r1_development.yaml and scripts/run_r1_development.py, which produced the three checkpoints listed below. This file documents the protocol; it is not re-derived from test results.",
+  "frozen_at_step": "R1 Development approved and frozen; R1 Beijing test 2014 evaluation about to start",
+  "architecture": {
+    "d_model": 32,
+    "num_heads": 4,
+    "d_ff": 128,
+    "dropout": 0.10,
+    "factor": 3,
+    "n_encoder_units": 2,
+    "n_decoder_layers": 1,
+    "decoder_label_len": 12,
+    "lookback": 24,
+    "prediction_length": 1,
+    "non_selected_fill": "zero",
+    "causal_mode": "probsparse"
+  },
+  "training_protocol_used_to_produce_checkpoints": {
+    "optimizer": "adam",
+    "learning_rate": 1.0e-4,
+    "batch_size": 32,
+    "loss": "mse",
+    "max_epochs": 200,
+    "early_stopping": {
+      "monitor": "val_loss",
+      "patience": 15,
+      "min_delta": 0.0,
+      "restore_best_weights": true
+    }
+  },
+  "seeds": [42, 123, 2026],
+  "frozen_checkpoints": {
+    "42": "outputs/checkpoints/R1_development_seed42/best.weights.h5",
+    "123": "outputs/checkpoints/R1_development_seed123/best.weights.h5",
+    "2026": "outputs/checkpoints/R1_development_seed2026/best.weights.h5"
+  },
+  "checkpoints_will_not_be_modified": true,
+  "data_protocol": {
+    "source": "PRSA_data_2010.1.1-2014.12.31.csv",
+    "pipeline": "src.data.beijing.prepare_beijing_r1",
+    "train_period": "2010-01-01 00:00 to 2013-08-31 23:00",
+    "validation_period": "2013-09-01 00:00 to 2013-12-31 23:00",
+    "test_period": "2014-01-01 00:00 to 2014-12-31 23:00",
+    "scalers_and_encoder_fit_on": "TRAIN only (MinMax for pm25 and other 6 continuous vars, OneHotEncoder for cbwd)",
+    "audited_train_windows": 29237,
+    "audited_validation_windows": 2841,
+    "audited_test_windows_expected": 8487,
+    "note": "Test windows count will be confirmed against this audited value when the pipeline is run with include_test=True below — no window/imputation rule changes are permitted to increase this count."
+  },
+  "validation_results_that_triggered_freeze": {
+    "seed_42": {"best_epoch": 43, "val_RMSE_ug_m3": 21.122, "val_MAE_ug_m3": 12.675, "val_R2": 0.9474},
+    "seed_123": {"best_epoch": 72, "val_RMSE_ug_m3": 20.781, "val_MAE_ug_m3": 12.431, "val_R2": 0.9491},
+    "seed_2026": {"best_epoch": 52, "val_RMSE_ug_m3": 21.242, "val_MAE_ug_m3": 12.893, "val_R2": 0.9468},
+    "validation_RMSE_mean_std": [21.048, 0.240],
+    "validation_MAE_mean_std": [12.666, 0.231],
+    "validation_R2_mean_std": [0.9477, 0.0012]
+  },
+  "test_evaluation_rule": "Test 2014 is evaluated EXACTLY ONCE, after this freeze, purely by inference (training=False) with the three checkpoints listed above. No tuning, retraining, architecture change, or seed selection based on test results is permitted after this point.",
+  "fontibon_used": false
+}

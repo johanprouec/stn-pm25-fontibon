@@ -1,0 +1,52 @@
+# PLANNED — not yet implemented/executed. Requires approval per
+# docs/PHASE2_PLAN.md before SparseAttention/STN are coded.
+#
+# R1: Beijing Replication. Approximates Zhang & Zhang (2023) on the
+# original 8-variable Beijing setup. Provenance tags: [reported] = stated
+# explicitly by the paper, [inferred] = read off the paper's diagram/text
+# without an explicit stated value, [assumed] = not specified by the paper,
+# chosen by us. Full rationale in docs/IMPLEMENTATION_ASSUMPTIONS.md.
+
+experiment_id: R1_beijing_replication
+purpose: approximate the paper's Beijing t+1 result (RMSE=19.04, MAE=11.13, R2=0.937)
+
+data:
+  source: PRSA_data_2010.1.1-2014.12.31.csv
+  variables: [pm25, dewp, temp, pres, cbwd_onehot, iws, is, ir]  # [reported] 8 conceptual vars;
+                                                                    # cbwd one-hot expands channel count [assumed: encoding method]
+  window: 24        # [reported]
+  horizon: 1         # [reported] (paper evaluates 1/6/12/24/48; we limit to t+1, justified in Primera Entrega)
+  train_period: ["2010-01-01", "2013-08-31"]  # [assumed] subdivision within the paper's 2010-2013 train span — see docs/PHASE2_PLAN.md
+  val_period: ["2013-09-01", "2013-12-31"]     # [assumed] carved out of 2013 for early stopping; not in the paper
+  test_period: ["2014-01-01", "2014-12-31"]    # [reported] full year 2014, held out completely
+
+training:
+  optimizer: adam        # [reported]
+  learning_rate: 1.0e-4   # [reported]
+  batch_size: 32          # [reported]
+  max_epochs: 200         # [reported]
+  loss: mse               # [reported]
+  normalization: minmax_0_1  # [reported]
+  seed: [42, 123, 2026]    # [assumed] — no seed convention found in Primera Entrega beyond a single SEED=42
+
+architecture:
+  encoder_layers: 3        # [reported]
+  decoder_layers: 2        # [reported]
+  conv1d_kernel: 3         # [reported]
+  maxpool_stride: 2        # [reported]
+  d_model: null             # [not specified by paper] — TBD, see IMPLEMENTATION_ASSUMPTIONS.md
+  n_heads: null              # [not specified by paper] — TBD
+  d_ff: null                  # [not specified by paper] — TBD
+  dropout: null                # [not specified by paper] — TBD
+  sparse_attention_top_u_factor: null  # [not specified by paper] — TBD, core hyperparameter of ProbSparse-style attention
+
+early_stopping:
+  metric: val_loss
+  patience: null      # [assumed] — TBD
+  min_delta: null       # [assumed] — TBD
+  restore_best_weights: true
+
+paper_reference_metrics:
+  RMSE: 19.04
+  MAE: 11.13
+  R2: 0.937

@@ -1,0 +1,105 @@
+{
+  "label": "TRANSFER PILOT -- INTEGRATION CHECK ONLY, NO RESULTADO CIENTIFICO DEFINITIVO",
+  "config": "C",
+  "seed": 42,
+  "train_windows_used": 512,
+  "validation_windows_used": 128,
+  "epochs_run": 2,
+  "final_train_loss_scaled": 0.004513617641907898,
+  "final_val_loss_scaled": 0.003842194038336355,
+  "validation_metrics_ug_m3": {
+    "RMSE": 6.160295448310208,
+    "MAE": 4.596677006268874,
+    "R2": 0.2824127570316759
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "optimization_loss_mean": 0.010639307991368696,
+      "train_loss": 0.004785751522941744,
+      "val_loss": 0.003742347814963373,
+      "train_rmse_scaled": 0.0691791263528367,
+      "val_rmse_scaled": 0.06117473183401275,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 0.5120037505403161,
+      "gradient_global_norm_max": 1.668100118637085,
+      "gradient_global_norm_std": 0.3980281879769945,
+      "epoch_time_seconds": 7.919503688812256,
+      "best_so_far": true
+    },
+    {
+      "epoch": 2,
+      "optimization_loss_mean": 0.007294977665878832,
+      "train_loss": 0.004513617641907898,
+      "val_loss": 0.003842194038336355,
+      "train_rmse_scaled": 0.06718346256265673,
+      "val_rmse_scaled": 0.06198543408201926,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 0.19489682279527187,
+      "gradient_global_norm_max": 0.6247439384460449,
+      "gradient_global_norm_std": 0.14379228035128533,
+      "epoch_time_seconds": 3.269557476043701,
+      "best_so_far": false
+    }
+  ],
+  "build_report": {
+    "config": "C",
+    "seed": 42,
+    "freeze_encoder": true,
+    "freeze_decoder": false,
+    "encoder_lr": null,
+    "decoder_head_lr": 0.0001,
+    "loaded_source": true,
+    "loaded_from": "outputs\\checkpoints\\R2_source_seed42\\best.weights.h5",
+    "encoder_loaded": true,
+    "decoder_loaded": true,
+    "output_head_loaded": false
+  },
+  "compatibility_report": {
+    "compatible": true,
+    "encoder_compatible": true,
+    "decoder_compatible": true,
+    "encoder_n_weights_source": 96,
+    "encoder_n_weights_target": 96,
+    "decoder_n_weights_source": 27,
+    "decoder_n_weights_target": 27,
+    "encoder_mismatches": [],
+    "decoder_mismatches": [],
+    "output_head_shapes_source": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "output_head_shapes_target": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "note": "output_head shapes are informational only and are NOT part of `compatible` — the output head is always reinitialized fresh for the target domain in every transfer config, never copied from source."
+  },
+  "r2_source_checkpoint_path": "outputs\\checkpoints\\R2_source_seed42\\best.weights.h5",
+  "r2_source_checkpoint_sha256_before": "7753d3e9d5f885aa749f85af5aabc30717ee0d496366f29cd6d1661935449d6d",
+  "r2_source_checkpoint_sha256_after": "7753d3e9d5f885aa749f85af5aabc30717ee0d496366f29cd6d1661935449d6d",
+  "r2_source_checkpoint_intact": true,
+  "output_head_loaded_from_source": false,
+  "encoder_frozen_confirmed_unchanged": true,
+  "decoder_frozen_confirmed_unchanged": null,
+  "head_confirmed_updated": true,
+  "all_losses_and_gradients_finite": true,
+  "total_pilot_time_seconds": 23.2016704082489,
+  "checkpoint_dir": "outputs\\checkpoints\\transfer_pilot_C_seed42",
+  "status": "OK",
+  "beijing_test_2014_used": false,
+  "fontibon_test_used": false,
+  "r1_or_r2_modified": false,
+  "other_seeds_used": false,
+  "full_training_executed": false
+}

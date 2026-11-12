@@ -1,0 +1,30 @@
+[
+  {
+    "epoch": 1,
+    "optimization_loss_mean": 0.01332686742534861,
+    "train_loss": 0.01073390765626581,
+    "val_loss": 0.010680962163815354,
+    "train_rmse_scaled": 0.10360457352967488,
+    "val_rmse_scaled": 0.10334874050425266,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 0.9772765524685383,
+    "gradient_global_norm_max": 1.1431256532669067,
+    "gradient_global_norm_std": 0.09162219790832568,
+    "epoch_time_seconds": 5.432415962219238,
+    "best_so_far": true
+  },
+  {
+    "epoch": 2,
+    "optimization_loss_mean": 0.009112427214859053,
+    "train_loss": 0.0076838135963996235,
+    "val_loss": 0.007199845479071636,
+    "train_rmse_scaled": 0.08765736475847094,
+    "val_rmse_scaled": 0.08485190321419807,
+    "learning_rate": 9.999999747378752e-05,
+    "gradient_global_norm_mean": 0.6436309181153774,
+    "gradient_global_norm_max": 0.9153475761413574,
+    "gradient_global_norm_std": 0.15063168011491437,
+    "epoch_time_seconds": 3.2152795791625977,
+    "best_so_far": true
+  }
+]

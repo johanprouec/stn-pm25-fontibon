@@ -1,0 +1,93 @@
+{
+  "experiment": "R2_source",
+  "status": "source_pretraining_train_validation_only",
+  "seed": 2026,
+  "config": {
+    "d_model": 32,
+    "num_heads": 4,
+    "d_ff": 128,
+    "factor": 3,
+    "dropout": 0.1,
+    "n_encoder_units": 2,
+    "n_decoder_layers": 1,
+    "non_selected_fill": "zero",
+    "learning_rate": 0.0001,
+    "batch_size": 32,
+    "max_epochs": 200,
+    "early_stopping": {
+      "monitor": "val_loss",
+      "patience": 15,
+      "min_delta": 0.0,
+      "restore_best_weights": true
+    }
+  },
+  "best_epoch": 58,
+  "stopping_epoch": 73,
+  "total_epochs": 73,
+  "best_val_loss_scaled": 0.00044923714322583214,
+  "train_metrics_ug_m3": {
+    "RMSE": 23.294176552909615,
+    "MAE": 12.829848402644181,
+    "R2": 0.9357026250399776
+  },
+  "validation_metrics_ug_m3": {
+    "RMSE": 21.068043820045013,
+    "MAE": 12.646218293487753,
+    "R2": 0.9476366471876638
+  },
+  "validation_residual_diagnostics_ug_m3": {
+    "bias_mean": -0.20725650646366817,
+    "std": 21.06702435428092,
+    "p05": -30.026519775390625,
+    "p25": -8.180858612060547,
+    "p50": 0.6407527923583984,
+    "p75": 6.753192901611328,
+    "p95": 28.802001953125
+  },
+  "total_trainable_parameters": 99425,
+  "total_training_time_seconds": 13899.950638771057,
+  "sum_epoch_time_seconds": 13736.555485248566,
+  "mean_epoch_time_seconds": 188.1719929486105,
+  "median_epoch_time_seconds": 179.29364943504333,
+  "gradient_norm_initial_epoch": 1.266496749737461,
+  "gradient_norm_final_epoch": 0.06262122761280861,
+  "gradient_norm_max_over_training": 24.336408615112305,
+  "history_path": "outputs\\metrics\\R2_source_seed2026_history.json",
+  "predictions_path": "outputs\\metrics\\R2_source_seed2026_validation_predictions.csv",
+  "checkpoint_dir": "outputs\\checkpoints\\R2_source_seed2026",
+  "figures_dir": "outputs\\figures\\R2_source_seed2026",
+  "metadata_path": "outputs\\metrics\\R2_source_seed2026_metadata.json",
+  "compatibility_report_from_checkpoint": {
+    "compatible": true,
+    "encoder_compatible": true,
+    "decoder_compatible": true,
+    "encoder_n_weights_source": 96,
+    "encoder_n_weights_target": 96,
+    "decoder_n_weights_source": 27,
+    "decoder_n_weights_target": 27,
+    "encoder_mismatches": [],
+    "decoder_mismatches": [],
+    "output_head_shapes_source": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "output_head_shapes_target": [
+      [
+        32,
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "note": "output_head shapes are informational only and are NOT part of `compatible` — the output head is always reinitialized fresh for the target domain in every transfer config, never copied from source."
+  },
+  "beijing_test_2014_used": false,
+  "fontibon_trained_or_evaluated": false,
+  "reused_r1_checkpoints": false
+}

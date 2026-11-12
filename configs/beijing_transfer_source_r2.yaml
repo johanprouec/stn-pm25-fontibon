@@ -1,0 +1,114 @@
+# R2: Beijing Transfer Source. NOT a paper replication (R1 already covers
+# that, with the 8 conceptual variables — see configs/beijing_r1_development.yaml,
+# now CLOSED). R2's purpose is different: produce a Beijing-pretrained
+# STNModel whose input dimensionality and encoder-projection shape are
+# compatible with the Fontibon target model that will later receive
+# transfer (Config B/C/D — not implemented yet). See
+# docs/IMPLEMENTATION_ASSUMPTIONS.md, "R2 — transfer source pretraining".
+
+role: transfer_source
+status: full_source_training_complete   # all three seeds (42, 123, 2026) trained to completion; see outputs/metrics/R2_source_seed{42,123,2026}_summary.json and R2_source_seed_comparison.json
+
+experiment_id: R2_beijing_transfer_source
+purpose: produce pretrained weights compatible with Fontibon's 24x3 input for transfer learning
+
+# Single source of truth for these three names/order is
+# src/data/transfer_features.py:TRANSFER_FEATURE_NAMES — this list must
+# always match it exactly; a test enforces that.
+feature_names: [pm25, temp, dew]
+
+data:
+  source: PRSA_data_2010.1.1-2014.12.31.csv
+  pipeline: src.data.beijing.prepare_beijing_r2
+  window: 24
+  horizon: 1
+  train_period: ["2010-01-01 00:00", "2013-08-31 23:00"]   # identical to R1's development split
+  val_period: ["2013-09-01 00:00", "2013-12-31 23:00"]
+  test_period_NOT_USED: ["2014-01-01 00:00", "2014-12-31 23:00"]  # R1 already used Beijing test 2014 for its purpose; R2 does not build or evaluate it
+  scaling_note: >
+    MinMax [0,1] fit EXCLUSIVELY on Beijing R2 train — a separate scaler
+    from R1's and separate from Fontibon's own. Transfer compatibility
+    between Beijing and Fontibon is semantic and dimensional (channel i
+    means the same physical concept in both domains), NOT a shared
+    physical scaler.
+
+# Architecture: the CANDIDATE_V1 configuration frozen after R1 development
+# (see configs/beijing_r1_development.yaml and outputs/metrics/R1_frozen_protocol.json).
+# No architecture tuning is repeated here. Parameter count differs
+# slightly from R1 only in the encoder input projection (3 channels here
+# vs 11 in R1).
+architecture:
+  d_model: 32
+  num_heads: 4
+  d_ff: 128
+  dropout: 0.10
+  factor: 3
+  n_encoder_units: 2
+  n_decoder_layers: 1
+  decoder_label_len: 12
+  lookback: 24
+  prediction_length: 1
+  non_selected_fill: zero
+  causal_mode: probsparse
+
+training:
+  optimizer: adam
+  learning_rate: 1.0e-4
+  batch_size: 32
+  max_epochs: 200
+  loss: mse
+  seeds: [42, 123, 2026]   # all three trained to completion — see full_training block below
+
+early_stopping:
+  monitor: val_loss
+  patience: 15
+  min_delta: 0.0
+  restore_best_weights: true
+
+pilot:
+  status: executed_this_round
+  label: "R2 PILOT DE INTEGRACION -- NO RESULTADO FINAL"
+  seed: 42
+  max_train_windows: 4096
+  max_validation_windows: 1024
+  selection: chronological (not random)
+  max_epochs: 5
+  purpose: verify 3-channel preprocessing -> decoder -> STN -> gradients -> checkpoint -> inverse transform -> validation metrics, end to end
+  not_a_performance_result: true
+
+full_training:
+  status: COMPLETE
+  results:
+    seed_42:  {best_epoch: 54, stopping_epoch: 69, val_RMSE_ug_m3: 21.141, val_MAE_ug_m3: 13.007, val_R2: 0.9473}
+    seed_123: {best_epoch: 58, stopping_epoch: 73, val_RMSE_ug_m3: 20.971, val_MAE_ug_m3: 12.544, val_R2: 0.9481}
+    seed_2026: {best_epoch: 58, stopping_epoch: 73, val_RMSE_ug_m3: 21.068, val_MAE_ug_m3: 12.646, val_R2: 0.9476}
+    mean_std: {val_RMSE_ug_m3: "21.060 +/- 0.085", val_MAE_ug_m3: "12.732 +/- 0.243", val_R2: "0.9477 +/- 0.0004"}
+  note: >
+    Did NOT reuse R1's checkpoints — R1's encoder input projection was
+    trained for 11 channels; R2 trained from scratch with its own
+    3-channel input. See docs/IMPLEMENTATION_ASSUMPTIONS.md for why R1
+    weights cannot be reused directly. All three checkpoints are kept;
+    none is selected as "best" — transfer uses seed-to-seed pairing (see
+    output block below).
+
+output:
+  checkpoint_root: outputs/checkpoints/R2_source_seed{seed}/best.weights.h5
+  # CORRECTED: this previously read "outputs/checkpoints/R2_beijing_transfer_source_seed{seed}/",
+  # which never matched the path scripts/run_r2_source_training.py actually
+  # writes to (outputs/checkpoints/R2_source_seed{seed}/). The 3 config
+  # files for B/C/D also hardcoded a third, different, wrong path
+  # (outputs/checkpoints/r2_beijing_transfer_source/, lowercase, no seed
+  # placeholder at all) -- all now fixed to this same corrected pattern.
+  metadata_root: outputs/metrics/R2_source_seed{seed}_metadata.json
+  pairing_rule: >
+    Seed-to-seed only: local Fontibon seed 42 loads R2 source seed 42,
+    123 loads 123, 2026 loads 2026. Never select the lowest-RMSE source
+    checkpoint to initialize every local run (see
+    docs/IMPLEMENTATION_ASSUMPTIONS.md).
+
+forbidden_from_now_on:
+  - Beijing test 2014 (closed after R1's one-time evaluation; not reused for R2 or transfer)
+  - reentrenar o modificar R1 o R2 (ambos cerrados; checkpoints/summaries/metadata/history/predictions no se tocan)
+  - Fontibon test (reservado para Fase 3)
+  - tuning retroactivo de arquitectura/hiperparametros basado en resultados ya vistos
+  - ejecutar A/B/C/D sin autorizacion explicita aparte (la infraestructura puede construirse y probarse, no ejecutarse sobre datos reales)

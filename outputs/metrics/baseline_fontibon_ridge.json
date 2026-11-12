@@ -1,0 +1,57 @@
+{
+  "seed": 42,
+  "ventana": 24,
+  "limite_imputacion_h": 6,
+  "n_windows": {
+    "train": 10802,
+    "val": 2564,
+    "test": 2574
+  },
+  "validacion": {
+    "RMSE": 6.544816957205096,
+    "MAE": 4.782949513127643,
+    "R2": 0.586752012421902
+  },
+  "test": {
+    "RMSE": 7.063201147985151,
+    "MAE": 5.1145891974357784,
+    "R2": 0.593495109986117
+  },
+  "high_episode_train_counts": {
+    "40.0": 469,
+    "37.0": 707
+  },
+  "high_episode_val": {
+    "40.0": {
+      "RMSE_high": 17.846977237211238,
+      "MAE_high": 15.350764599431132,
+      "Bias_high": -14.801037981442114,
+      "n_high": 66
+    },
+    "37.0": {
+      "RMSE_high": 16.79346109077592,
+      "MAE_high": 14.461601175301503,
+      "Bias_high": -13.218267365164651,
+      "n_high": 90
+    }
+  },
+  "high_episode_test": {
+    "40.0": {
+      "RMSE_high": 17.868000013876582,
+      "MAE_high": 15.579230724983027,
+      "Bias_high": -14.960922301180474,
+      "n_high": 118
+    },
+    "37.0": {
+      "RMSE_high": 16.239684820070273,
+      "MAE_high": 13.802247922317068,
+      "Bias_high": -12.999059210628458,
+      "n_high": 159
+    }
+  },
+  "reproducibility_checks": {
+    "n_windows_match": true,
+    "val_rmse_match": true,
+    "test_rmse_match": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "experiment": "transfer_A",
+  "config": "A",
+  "seed": 42,
+  "status": "INCOMPLETE_STOPPED_EARLY_FOR_DEADLINE",
+  "epochs_completed": 5,
+  "last_epoch_val_loss_scaled": 0.008336253466791002,
+  "best_epoch_so_far": 5,
+  "checkpoint_dir": "outputs/checkpoints/transfer_A_seed42",
+  "history_path": "outputs/metrics/transfer_A_seed42_history.json",
+  "note": "Stopped safely before reaching early-stopping/200-epoch completion due to a hard deadline. Checkpoint (best epoch so far) and full per-epoch history preserved on disk. NOT a final result -- do not compare against B/C/D full runs."
+}

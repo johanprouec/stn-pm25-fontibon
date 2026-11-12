@@ -1,0 +1,49 @@
+# CANDIDATE_V1 — FINAL ARCHITECTURE USED. This file started as the
+# architecture-validation candidate (smoke tests, Phase 2 Task 2). The same
+# architecture block below (d_model 32, 4 heads, d_ff 128, dropout 0.10,
+# factor 3, 2 encoder units, 1 decoder layer, label_len 12) was then used,
+# unchanged, in every executed experiment: R1 (beijing_r1_development.yaml),
+# R2 (beijing_transfer_source_r2.yaml) and Fontibón A/B/C
+# (src/training/transfer.py::CANDIDATE_V1, cross-checked by
+# tests/test_transfer_infrastructure.py). Its values were not selected by a
+# hyperparameter search; see docs/IMPLEMENTATION_ASSUMPTIONS.md, "STN
+# architecture implementation decisions", for the reported/promised/our-decision
+# breakdown. The per-experiment settings (seeds, learning rates, freezing)
+# live in the experiment YAMLs, not here.
+#
+# Only this descriptive header and `status` were updated in the final
+# delivery; no hyperparameter below was changed.
+
+status: final_architecture_used
+
+architecture:
+  d_model: 32              # [our decision] moderate size, no search performed
+  num_heads: 4              # [our decision] head_dim = d_model / num_heads = 8
+  d_ff: 128                  # [our decision] 4 * d_model, conventional Transformer ratio
+  dropout: 0.10                # [our decision] paper does not report dropout for STN
+  factor: 3                     # [our decision] ProbSparse-style sampling/selection constant; NOT reported by Zhang & Zhang
+  n_encoder_units: 2              # [deliberate deviation from paper] paper reports 3; Primera Entrega already promised a reduced STN
+  n_decoder_layers: 1              # [deliberate deviation from paper] paper reports 2; same reduction rationale
+  decoder_label_len: 12              # [our decision] ~half the 24h lookback used as decoder start tokens; paper gives no exact length
+  lookback: 24                        # [reported by paper] window size
+  prediction_length: 1                 # [matches Primera Entrega] horizon = t+1
+  non_selected_fill: zero               # [matches paper's literal wording] "filling other pairs with zero"
+  causal_mode: probsparse                # [our decision, see docs/IMPLEMENTATION_ASSUMPTIONS.md] global top-u selection, causally masked final attention
+
+paper_reported_for_reference:
+  n_encoder_units: 3
+  n_decoder_layers: 2
+  conv1d_kernel_size: 3
+  maxpool_stride: 2
+  optimizer: adam
+  learning_rate: 1.0e-4
+  batch_size: 32
+  max_epochs: 200
+  loss: mse
+
+note: >
+  n_encoder_units and n_decoder_layers are configurable specifically so the
+  same STNModel class can also be built at the paper's reported depth
+  (n_encoder_units=3, n_decoder_layers=2) if ever needed for a closer
+  replication attempt — Candidate V1 intentionally uses the reduced 2/1
+  depth instead, per the Primera Entrega's announced STN reduction.

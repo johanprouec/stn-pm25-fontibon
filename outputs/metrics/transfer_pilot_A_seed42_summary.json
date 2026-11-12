@@ -1,0 +1,72 @@
+{
+  "label": "TRANSFER PILOT -- INTEGRATION CHECK ONLY, NO RESULTADO CIENTIFICO DEFINITIVO",
+  "config": "A",
+  "seed": 42,
+  "train_windows_used": 512,
+  "validation_windows_used": 128,
+  "epochs_run": 2,
+  "final_train_loss_scaled": 0.18509472493333343,
+  "final_val_loss_scaled": 0.3355991290427399,
+  "validation_metrics_ug_m3": {
+    "RMSE": 16.9934697043471,
+    "MAE": 13.024879252095708,
+    "R2": -4.460541972091908
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "optimization_loss_mean": 0.7123955693095922,
+      "train_loss": 0.1669214767016549,
+      "val_loss": 0.02847771800065985,
+      "train_rmse_scaled": 0.40856024855785333,
+      "val_rmse_scaled": 0.16875342367092838,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 18.648019909858704,
+      "gradient_global_norm_max": 64.69091033935547,
+      "gradient_global_norm_std": 16.258584474382996,
+      "epoch_time_seconds": 17.756532430648804,
+      "best_so_far": true
+    },
+    {
+      "epoch": 2,
+      "optimization_loss_mean": 0.3819519430398941,
+      "train_loss": 0.18509472493333343,
+      "val_loss": 0.3355991290427399,
+      "train_rmse_scaled": 0.4302263647585227,
+      "val_rmse_scaled": 0.5793091825983254,
+      "learning_rate": 9.999999747378752e-05,
+      "gradient_global_norm_mean": 10.318684965372086,
+      "gradient_global_norm_max": 30.961708068847656,
+      "gradient_global_norm_std": 6.8629705498632925,
+      "epoch_time_seconds": 4.543695449829102,
+      "best_so_far": false
+    }
+  ],
+  "build_report": {
+    "config": "A",
+    "seed": 42,
+    "freeze_encoder": false,
+    "freeze_decoder": false,
+    "encoder_lr": null,
+    "decoder_head_lr": 0.0001,
+    "loaded_source": false
+  },
+  "compatibility_report": null,
+  "r2_source_checkpoint_path": null,
+  "r2_source_checkpoint_sha256_before": null,
+  "r2_source_checkpoint_sha256_after": null,
+  "r2_source_checkpoint_intact": null,
+  "output_head_loaded_from_source": false,
+  "encoder_frozen_confirmed_unchanged": null,
+  "decoder_frozen_confirmed_unchanged": null,
+  "head_confirmed_updated": true,
+  "all_losses_and_gradients_finite": true,
+  "total_pilot_time_seconds": 30.812092542648315,
+  "checkpoint_dir": "outputs\\checkpoints\\transfer_pilot_A_seed42",
+  "status": "OK",
+  "beijing_test_2014_used": false,
+  "fontibon_test_used": false,
+  "r1_or_r2_modified": false,
+  "other_seeds_used": false,
+  "full_training_executed": false
+}

@@ -1,0 +1,56 @@
+{
+  "experiment": "transfer_A",
+  "config": "A",
+  "seed": 42,
+  "status": "train_validation_only",
+  "best_epoch": 102,
+  "stopping_epoch": 117,
+  "total_epochs": 117,
+  "best_val_loss_scaled": 0.004019156984454857,
+  "train_metrics_ug_m3": {
+    "RMSE": 6.354435577083262,
+    "MAE": 4.579477201283276,
+    "R2": 0.653844487244045
+  },
+  "validation_metrics_ug_m3": {
+    "RMSE": 6.384059934978938,
+    "MAE": 4.601467447645393,
+    "R2": 0.6068034950658392
+  },
+  "validation_residual_diagnostics_ug_m3": {
+    "bias_mean": -0.08711156588448737,
+    "std": 6.383465581366632,
+    "p05": -10.340210218429565,
+    "p25": -3.1960245609283433,
+    "p50": 0.7257533073425293,
+    "p75": 3.4314197063446046,
+    "p95": 9.074032535552977
+  },
+  "total_trainable_parameters": 99425,
+  "total_training_time_seconds": 8633.220352172852,
+  "mean_epoch_time_seconds": 73.07313868734572,
+  "gradient_norm_initial_epoch": 4.032349627222535,
+  "gradient_norm_final_epoch": 0.14960292633071806,
+  "gradient_norm_max_over_training": 65.67144012451172,
+  "build_report": {
+    "config": "A",
+    "seed": 42,
+    "freeze_encoder": false,
+    "freeze_decoder": false,
+    "encoder_lr": null,
+    "decoder_head_lr": 0.0001,
+    "loaded_source": false
+  },
+  "compatibility_report": null,
+  "r2_source_checkpoint_sha256_before": null,
+  "r2_source_checkpoint_sha256_after": null,
+  "r2_source_checkpoint_intact": null,
+  "encoder_frozen_confirmed_unchanged": null,
+  "decoder_frozen_confirmed_unchanged": null,
+  "predictions_path": "outputs\\metrics\\transfer_A_seed42_validation_predictions.csv",
+  "figures_dir": "outputs\\figures\\transfer_A_seed42",
+  "checkpoint_dir": "outputs\\checkpoints\\transfer_A_seed42",
+  "beijing_test_2014_used": false,
+  "fontibon_test_used": false,
+  "r1_or_r2_modified": false
+}

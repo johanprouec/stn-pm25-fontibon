@@ -1,0 +1,24 @@
+{
+  "seed": 2026,
+  "split": "test_2014",
+  "checkpoint_used": "outputs\\checkpoints\\R1_development_seed2026\\best.weights.h5",
+  "inference_only": true,
+  "training_performed": false,
+  "n_test_windows": 8487,
+  "test_metrics_ug_m3": {
+    "RMSE": 21.48086719424283,
+    "MAE": 12.060131714286998,
+    "R2": 0.946928373218436
+  },
+  "test_residual_diagnostics_ug_m3": {
+    "bias_mean": -3.11099506028482,
+    "std": 21.254396372317455,
+    "p05": -30.472409057617188,
+    "p25": -9.903003692626953,
+    "p50": -2.1904296875,
+    "p75": 3.9084835052490234,
+    "p95": 21.87342529296875
+  },
+  "predictions_path": "outputs\\metrics\\R1_test_seed2026_predictions.csv",
+  "fontibon_used": false
+}

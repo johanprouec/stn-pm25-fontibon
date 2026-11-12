@@ -1,0 +1,42 @@
+{
+  "feature_names": [
+    "pm25",
+    "temp",
+    "dew"
+  ],
+  "feature_order_source_of_truth": "src.data.transfer_features.TRANSFER_FEATURE_NAMES",
+  "n_windows": {
+    "train": 10802,
+    "validation": 2564,
+    "test": null
+  },
+  "n_windows_expected_from_ridge_baseline": {
+    "train": 10802,
+    "validation": 2564,
+    "test": 2574
+  },
+  "pm25_train_min_max_ug_m3": [
+    0.1,
+    100.8
+  ],
+  "temp_train_min_max": [
+    8.0,
+    23.9
+  ],
+  "dew_train_min_max": [
+    -3.6686801825239757,
+    13.228101275496968
+  ],
+  "encoder_input_shape": [
+    24,
+    3
+  ],
+  "decoder_input_shape": [
+    13,
+    1
+  ],
+  "scaler_is_fontibons_own_not_beijings": true,
+  "beijing_test_2014_used": false,
+  "fontibon_test_used": false,
+  "note": "No predictive/validation/test metric of any kind is included here — preprocessing facts only. `fontibon_test_used` reflects whether the test split was BUILT (include_test=True), not whether it was ever evaluated — no Phase 2 script may evaluate it regardless."
+}
