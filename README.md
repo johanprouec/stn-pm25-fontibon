@@ -117,12 +117,13 @@ transferencia").
 ## Estructura
 
 ```
-data/                   raw/ y processed/ (vacías por ahora; los CSV originales se leen
-                         directamente desde la raíz del proyecto, ver docs/PHASE1_AUDIT.md
-                         sobre por qué no se movieron)
-docs/                    PHASE1_AUDIT.md, IMPLEMENTATION_ASSUMPTIONS.md, PHASE2_PLAN.md
-notebooks/               SegundaEntrega_DL.ipynb — único notebook de Fase 2; el original
-                         PrimeraEntrega_DL.ipynb permanece en la raíz, sin modificar
+data/                   raw/ y processed/ (vacías; los CSV se leen desde la raíz del proyecto,
+                         ver docs/PHASE1_AUDIT.md)
+docs/                    PHASE1_AUDIT.md, IMPLEMENTATION_ASSUMPTIONS.md, PHASE2_PLAN.md,
+                         ANALISIS_SOBREAJUSTE.md, PHASE3_RESULTADOS.md, README_REPRODUCIBILIDAD.md
+                         e informe_final/ (main.tex + figuras)
+notebooks/               SegundaEntrega_DL.ipynb y EntregaFinal_DL.ipynb, correspondientes a las
+                         Fases 2 y 3 (ejecutados)
 src/
   data/                  common.py (contrato compartido PreparedSplit); fontibon.py (pipeline
                          Ridge ya auditado + prepare_fontibon_stn para la STN); beijing.py
@@ -142,17 +143,14 @@ configs/                 baseline_fontibon.yaml (ejecutado) + stn_candidate_v1.y
                          transfer_A/B/C_*.yaml (EJECUTADOS: A 3/3, B 2/3+1 provisional, C 3/3) +
                          transfer_D_full_finetune.yaml (solo pilot de integración, sin
                          entrenamiento completo)
-outputs/                 checkpoints/, figures/, metrics/, tensorboard/ — incluye los resultados
-                         completos de R1, R2 y A/B/C (3 semillas cada uno, salvo B-2026
-                         provisional), el pilot de D, y el análisis de distancia de dominio
+outputs/                 figures/ y metrics/ — resultados completos de R1, R2, A/B/C (3 semillas
+                         cada uno, salvo B-2026 provisional), el piloto de D, la distancia de
+                         dominio y la Fase 3 (F3_*); checkpoints/ y tensorboard/ no se distribuyen
 tests/                   pytest tests/ -v — particiones, fuga de scaler, ventanas, fuga de
-                         objetivo, shapes, SparseAttention, STN, pipeline R1, pipeline R2,
-                         pipeline Fontibón-STN, infraestructura de transferencia. **Todos en
-                         verde en el proyecto original** (con ambos CSV y los checkpoints de R2
-                         disponibles). **En el paquete de entrega** (`SegundaEntrega_Codigo_Reproducible.zip`,
-                         sin el CSV de Fontibón ni checkpoints `.h5`) el resultado real medido es
-                         `2 failed, 172 passed, 1 skipped, 26 errors` — ver la tabla detallada en
-                         `docs/README_REPRODUCIBILIDAD.md` dentro de ese ZIP.
+                         objetivo, shapes, SparseAttention, STN, pipelines R1/R2/Fontibón-STN,
+                         infraestructura de transferencia y auditoría de la Fase 3. Resultado:
+                         209 passed en el proyecto completo; 179 passed, 30 skipped, 0 failed,
+                         0 errors sin el CSV de Fontibón ni los checkpoints (ver "Pruebas").
 scripts/                 smoke_test_stn.py, run_r1_*.py, compare_r1_seeds.py, run_r2_*.py,
                          compare_r2_source_seeds.py, run_domain_distance_analysis.py (ejecutado,
                          descriptivo), run_baseline_fontibon.py (referencia histórica de la
@@ -193,18 +191,13 @@ desde una sesión de Colab que haya clonado/copiado el repo completo.
 
 ## Datos
 
-Los archivos originales (`PRSA_data_2010.1.1-2014.12.31.csv`, Beijing; y
-`Raw_Consolidated_ECA_Complete_2022.csv`, Fontibón) se mantienen sin modificar en la raíz del
-proyecto como evidencia de la Fase 1. No se descargan copias adicionales desde internet.
-
-**Nota sobre el paquete de entrega** (`ENTREGA_FINAL_SEGUNDA_ENTREGA/SegundaEntrega_Codigo_Reproducible.zip`):
-ese ZIP incluye únicamente el CSV **público** de Beijing (`PRSA_data_2010.1.1-2014.12.31.csv`).
-El CSV institucional de Fontibón (`Raw_Consolidated_ECA_Complete_2022.csv`) **no se incluye** en
-ese paquete — ver `docs/README_REPRODUCIBILIDAD.md` dentro del ZIP para el detalle de qué
-pruebas y experimentos pueden ejecutarse sin él y cuáles no.
+El repositorio incluye únicamente el CSV público de Beijing (`PRSA_data_2010.1.1-2014.12.31.csv`,
+UCI). El CSV institucional de Fontibón (`Raw_Consolidated_ECA_Complete_2022.csv`) no se distribuye;
+para reproducir los análisis que dependen de él se requiere acceso al archivo original, que debe
+ubicarse en la raíz del proyecto. Tampoco se incluyen los checkpoints entrenados ni los registros de
+TensorBoard (por tamaño). Las pruebas que dependen de esos recursos se omiten de forma explícita
+cuando no están disponibles; ver `docs/README_REPRODUCIBILIDAD.md`.
 
 ## Entregables finales
-Las versiones finales del informe y de la sustentación están en `docs/final_deliverables/`.
 
-## Archivos no distribuidos
-Por privacidad/tamaño no se incluyen el CSV institucional de Fontibón, checkpoints de entrenamiento ni TensorBoard. Los tests que dependen exclusivamente de esos recursos se omiten de forma explícita cuando no están disponibles.
+Las versiones finales del informe y de la sustentación están en `docs/final_deliverables/`.
